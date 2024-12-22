@@ -1,7 +1,8 @@
 {
-  "block.minecology.lions_mane_block": "Lion's Mane Block",
-  "block.minecology.oyster_mushroom_block": "Oyster Mushroom Block",
   "block.minecology.dehydrator": "Dehydrator",
+  "item.minecology.fly_agaric_block": "Fly Agaric Block",
+  "item.minecology.lions_mane_block": "Lion's Mane Block",
+  "item.minecology.oyster_mushroom_block": "Oyster Mushroom Block",
 
   "item.minecology.crown_of_the_mushroom_forest": "Crown of the Mushroom Forest",
   "item.minecology.fly_agaric": "Fly Agaric",

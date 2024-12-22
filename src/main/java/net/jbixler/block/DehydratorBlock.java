@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class DehydratorBlock extends BlockWithEntity implements BlockEntityProvider {
     private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 16);
 
-    public static BooleanProperty ON;
+//    public static final BooleanProperty ON = BooleanProperty.;
 
     public DehydratorBlock(Settings settings) {
         super(settings);

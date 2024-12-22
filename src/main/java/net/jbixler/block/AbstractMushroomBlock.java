@@ -53,4 +53,9 @@ public class AbstractMushroomBlock extends HorizontalFacingBlock {
     protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
+
+    @Override
+    protected boolean hasRandomTicks(BlockState state) {
+        return true;
+    }
 }

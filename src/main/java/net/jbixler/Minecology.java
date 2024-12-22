@@ -10,13 +10,9 @@ import net.jbixler.effects.ModEffects;
 import net.jbixler.item.ModArmorMaterials;
 import net.jbixler.item.ModItemGroups;
 import net.jbixler.item.ModItems;
-import net.jbixler.world.ModConfiguredFeatures;
-import net.jbixler.world.gen.ModWorldGeneration;
 import net.minecraft.potion.Potions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Random;
 
 public class Minecology implements ModInitializer {
 	public static final String MOD_ID = "minecology";

@@ -1,12 +1,39 @@
 {
   "variants": {
-    "age=0": {
-      "model": "minecology:block/fly_agaric_block_0"
+    "age=0,facing=north": {
+      "model": "minecology:block/fly_agaric_block_2"
     },
-    "age=1": {
-      "model": "minecology:block/fly_agaric_block_1"
+    "age=0,facing=east": {
+      "model": "minecology:block/fly_agaric_block_2"
     },
-    "age=2": {
+    "age=0,facing=south": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=0,facing=west": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=1,facing=north": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=1,facing=east": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=1,facing=south": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=1,facing=west": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=2,facing=north": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=2,facing=east": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=2,facing=south": {
+      "model": "minecology:block/fly_agaric_block_2"
+    },
+    "age=2,facing=west": {
       "model": "minecology:block/fly_agaric_block_2"
     }
   }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecology:item/fly_agaric_block"
+    "layer0": "minecology:item/fly_agaric"
   }
 }

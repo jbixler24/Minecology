@@ -1,17 +1,15 @@
 package net.jbixler.world;
 
 import net.jbixler.Minecology;
+import net.jbixler.block.FlyAgaricBlock;
 import net.jbixler.block.ModBlocks;
 import net.jbixler.block.OysterMushroomBlock;
-import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-
-import java.util.List;
 
 public class ModConfiguredFeatures {
 
@@ -24,13 +22,13 @@ public class ModConfiguredFeatures {
                 ConfiguredFeatures.createRandomPatchFeatureConfig(
                         Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.FLY_AGARIC_BLOCK)),
-                        List.of(Blocks.GRASS_BLOCK, Blocks.PODZOL)
+                        FlyAgaricBlock.PLACEABLE_BLOCKS
                 ));
         register(context, OYSTER_MUSHROOM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(
                         Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.OYSTER_MUSHROOM_BLOCK)),
-                        OysterMushroomBlock.getPlaceableBlocks()
+                        OysterMushroomBlock.PLACEABLE_BLOCKS
                 ));
     }
 

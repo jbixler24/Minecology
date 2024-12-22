@@ -1,15 +1,12 @@
 package net.jbixler.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -20,18 +17,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class OysterMushroomBlock extends AbstractMushroomBlock {
+    public static final float WILD_GROWTH_PROBABILITY = 0.1f;
     public static final int MAX_AGE = 2;
     public static final List<Block> PLACEABLE_BLOCKS = List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG, Blocks.BIRCH_LOG);
 
     public OysterMushroomBlock(Settings settings) {
         super(settings);
     }
-
-//    @Override
-//    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-//        builder.add(AGE);
-//        setDefaultState(this.getDefaultState().with(AGE, 2));
-//    }
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
@@ -64,23 +56,59 @@ public class OysterMushroomBlock extends AbstractMushroomBlock {
     }
 
     @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state == state.with(FACING, Direction.NORTH)) {
-            return VoxelShapes.cuboid(0.25f, 0f, 0.5f, 0.75f, 0.5f, 1.0f);
+    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (world.random.nextInt(Math.round(1 / WILD_GROWTH_PROBABILITY)) == 0) {
+            int i = state.get(AGE);
+            if (i < MAX_AGE) {
+                world.setBlockState(pos, state.with(AGE, i + 1), 2);
+            }
         }
-        if (state == state.with(FACING, Direction.EAST)) {
-            return VoxelShapes.cuboid(0.0f, 0f, 0.25f, 0.5f, 0.5f, 0.75f);
-        }
-        if (state == state.with(FACING, Direction.WEST)) {
-            return VoxelShapes.cuboid(0.5f, 0f, 0.25f, 1.0f, 0.5f, 0.75f);
-        }
-        if (state == state.with(FACING, Direction.SOUTH)) {
-            return VoxelShapes.cuboid(0.25f, 0f, 0.0f, 0.75f, 0.5f, 0.5f);
-        }
-        return VoxelShapes.fullCube();
     }
 
-    public static List<Block> getPlaceableBlocks() {
-        return PLACEABLE_BLOCKS;
+    // TODO: make smaller voxel shapes for age=0, age=1
+    @Override
+    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        if (state == state.with(AGE, 0)) {
+            if (state == state.with(FACING, Direction.NORTH)) {
+                return VoxelShapes.cuboid(0.25f, 0.25f, 0.5f, 0.75f, 0.75f, 1.0f);
+            }
+            if (state == state.with(FACING, Direction.EAST)) {
+                return VoxelShapes.cuboid(0.0f, 0.25f, 0.25f, 0.5f, 0.75f, 0.75f);
+            }
+            if (state == state.with(FACING, Direction.WEST)) {
+                return VoxelShapes.cuboid(0.5f, 0.25f, 0.25f, 1.0f, 0.75f, 0.75f);
+            }
+            if (state == state.with(FACING, Direction.SOUTH)) {
+                return VoxelShapes.cuboid(0.25f, 0.25f, 0.0f, 0.75f, 0.75f, 0.5f);
+            }
+            return VoxelShapes.fullCube();
+        } else if (state == state.with(AGE, 1)) {
+            if (state == state.with(FACING, Direction.NORTH)) {
+                return VoxelShapes.cuboid(0.25f, 0.25f, 0.5f, 0.75f, 0.75f, 1.0f);
+            }
+            if (state == state.with(FACING, Direction.EAST)) {
+                return VoxelShapes.cuboid(0.0f, 0.25f, 0.25f, 0.5f, 0.75f, 0.75f);
+            }
+            if (state == state.with(FACING, Direction.WEST)) {
+                return VoxelShapes.cuboid(0.5f, 0.25f, 0.25f, 1.0f, 0.75f, 0.75f);
+            }
+            if (state == state.with(FACING, Direction.SOUTH)) {
+                return VoxelShapes.cuboid(0.25f, 0.25f, 0.0f, 0.75f, 0.75f, 0.5f);
+            }
+        } else if (state == state.with(AGE, 2)) {
+            if (state == state.with(FACING, Direction.NORTH)) {
+                return VoxelShapes.cuboid(0.25f, 0.25f, 0.5f, 0.75f, 0.75f, 1.0f);
+            }
+            if (state == state.with(FACING, Direction.EAST)) {
+                return VoxelShapes.cuboid(0.0f, 0.25f, 0.25f, 0.5f, 0.75f, 0.75f);
+            }
+            if (state == state.with(FACING, Direction.WEST)) {
+                return VoxelShapes.cuboid(0.5f, 0.25f, 0.25f, 1.0f, 0.75f, 0.75f);
+            }
+            if (state == state.with(FACING, Direction.SOUTH)) {
+                return VoxelShapes.cuboid(0.25f, 0.25f, 0.0f, 0.75f, 0.75f, 0.5f);
+            }
+        }
+        return VoxelShapes.fullCube();
     }
 }

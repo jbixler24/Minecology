@@ -23,13 +23,31 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         return new RecipeGenerator(wrapperLookup, recipeExporter) {
             @Override
             public void generate() {
+                /* ARMOR RECIPES */
+
+                /* Crown of the Mushroom Forest */
+                createShaped(RecipeCategory.COMBAT,ModItems.CROWN_OF_THE_MUSHROOM_FOREST, 1)
+                        .pattern("FFF")
+                        .pattern("F F")
+                        .pattern("   ")
+                        .input('F', ModItems.DEHYDRATED_FLY_AGARIC_CAP)
+                        .criterion(hasItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP), conditionsFromItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.COMBAT,ModItems.CROWN_OF_THE_MUSHROOM_FOREST, 1)
+                        .pattern("  ")
+                        .pattern("FFF")
+                        .pattern("F F")
+                        .input('F', ModItems.DEHYDRATED_FLY_AGARIC_CAP)
+                        .criterion(hasItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP), conditionsFromItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP))
+                        .offerTo(exporter);
+
                 /* FOOD RECIPES */
 
                 /* Cooked Lion's Mane recipe */
                 offerSmelting(List.of(ModItems.LIONS_MANE), RecipeCategory.FOOD, ModItems.COOKED_LIONS_MANE, 0.25f, 200, "cooked_lions_mane");
-                /* Cooked Oyster Mushroom recipe */
+                /* Cooked Oyster Mushroom */
                 offerSmelting(List.of(ModItems.OYSTER_MUSHROOM), RecipeCategory.FOOD, ModItems.COOKED_OYSTER_MUSHROOM, 0.25f, 200, "cooked_oyster_mushroom");
-                /* Cream of Oyster Mushroom Soup recipe */
+                /* Cream of Oyster Mushroom Soup */
                 createShaped(RecipeCategory.FOOD, ModItems.CREAM_OF_OYSTER_MUSHROOM_SOUP, 3)
                         .pattern("OOO")
                         .pattern("CMC")
@@ -46,14 +64,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 /* MISC RECIPES */
 
-                /* Fly Agaric Cap recipe */
+                /* Fly Agaric Cap */
                 createShapeless(RecipeCategory.MISC, ModItems.FLY_AGARIC_CAP)
                         .input(ModItems.FLY_AGARIC)
                         .criterion(hasItem(ModItems.FLY_AGARIC), conditionsFromItem(ModItems.FLY_AGARIC))
                         .offerTo(exporter);
-                /* Dehydrated Fly Agaric Cap recipe */
+                /* Dehydrated Fly Agaric Cap */
                 offerSmelting(List.of(ModItems.FLY_AGARIC_CAP), RecipeCategory.MISC, ModItems.DEHYDRATED_FLY_AGARIC_CAP, 0.25f, 200, "dehydrated_fly_agaric");
-                /* Dehydrator Block recipe */
+                /* Dehydrator Block */
                 createShaped(RecipeCategory.MISC, ModBlocks.DEHYDRATOR_BLOCK, 1)
                         .pattern("GGG")
                         .pattern("IWI")

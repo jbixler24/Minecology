@@ -3,8 +3,6 @@ package net.jbixler.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldView;
 
@@ -17,12 +15,6 @@ public class LionsManeBlock extends AbstractMushroomBlock {
     public LionsManeBlock(Settings settings) {
         super(settings);
     }
-
-//    @Override
-//    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-//        builder.add(AGE);
-//        setDefaultState(this.getDefaultState().with(AGE, 2));
-//    }
 
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
