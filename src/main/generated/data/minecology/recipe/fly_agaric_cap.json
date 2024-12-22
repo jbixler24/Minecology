@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecology:fly_agaric"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:fly_agaric_cap"
+  }
+}

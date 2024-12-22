@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "cooked_lions_mane",
+  "ingredient": "minecology:lions_mane",
+  "result": {
+    "id": "minecology:cooked_lions_mane"
+  }
+}

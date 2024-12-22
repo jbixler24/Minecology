@@ -1,0 +1,32 @@
+{
+  "block.minecology.lions_mane_block": "Lion's Mane Block",
+  "block.minecology.oyster_mushroom_block": "Oyster Mushroom Block",
+  "block.minecology.dehydrator": "Dehydrator",
+
+  "item.minecology.crown_of_the_mushroom_forest": "Crown of the Mushroom Forest",
+  "item.minecology.fly_agaric": "Fly Agaric",
+  "item.minecology.fly_agaric_cap": "Fly Agaric Cap",
+  "item.minecology.dehydrated_fly_agaric_cap": "Dehydrated Fly Agaric Cap",
+  "item.minecraft.potion.effect.amanita_extract": "Amanita Extract",
+  "item.minecraft.splash_potion.effect.amanita_extract": "Topical Amanita Extract",
+  "item.minecraft.lingering_potion.effect.amanita_extract": "Lingering Amanita Extract",
+
+  "item.minecology.lions_mane": "Lion's Mane",
+  "item.minecology.cooked_lions_mane": "Cooked Lion's Mane",
+
+  "item.minecology.oyster_mushroom": "Oyster Mushroom",
+  "item.minecology.cooked_oyster_mushroom":"Cooked Oyster Mushroom",
+  "item.minecology.cream_of_oyster_mushroom_soup": "Cream of Oyster Mushroom Soup",
+
+  "item.minecology.dehydrator": "Dehydrator",
+
+  "itemgroup.minecology.minecology_items": "Minecology",
+
+  "effect.minecology.amatoxin_poisoning": "Amatoxin Poisoning",
+  "effect.minecology.berserker": "Berserker",
+  "effect.minecology.cognition": "Cognition",
+
+  "tooltip.minecology.fly_agaric.tooltip": "§7§oAmanita muscaria",
+  "tooltip.minecology.lions_mane.tooltip": "§7§oHericium erinaceus",
+  "tooltip.minecology.oyster_mushroom.tooltip": "§7§oPleurotus ostreatus"
+}

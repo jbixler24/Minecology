@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oyster_mushroom": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecology:oyster_mushroom"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cooked_oyster_mushroom_from_smelting_oyster_mushroom"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oyster_mushroom"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cooked_oyster_mushroom_from_smelting_oyster_mushroom"
+    ]
+  }
+}

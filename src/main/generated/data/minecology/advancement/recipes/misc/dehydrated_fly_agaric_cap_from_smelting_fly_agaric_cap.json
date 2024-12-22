@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fly_agaric_cap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecology:fly_agaric_cap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:dehydrated_fly_agaric_cap_from_smelting_fly_agaric_cap"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fly_agaric_cap"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:dehydrated_fly_agaric_cap_from_smelting_fly_agaric_cap"
+    ]
+  }
+}

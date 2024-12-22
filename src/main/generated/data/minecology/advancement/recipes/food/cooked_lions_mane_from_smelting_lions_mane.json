@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lions_mane": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecology:lions_mane"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cooked_lions_mane_from_smelting_lions_mane"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lions_mane"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cooked_lions_mane_from_smelting_lions_mane"
+    ]
+  }
+}

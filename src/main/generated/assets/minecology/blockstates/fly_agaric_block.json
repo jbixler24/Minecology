@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "minecology:block/fly_agaric_block_0"
+    },
+    "age=1": {
+      "model": "minecology:block/fly_agaric_block_1"
+    },
+    "age=2": {
+      "model": "minecology:block/fly_agaric_block_2"
+    }
+  }
+}

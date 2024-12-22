@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:bowl",
+    "C": "minecraft:cooked_chicken",
+    "M": "minecraft:milk_bucket",
+    "O": "minecology:cooked_oyster_mushroom"
+  },
+  "pattern": [
+    "OOO",
+    "CMC",
+    "BBB"
+  ],
+  "result": {
+    "count": 3,
+    "id": "minecology:cream_of_oyster_mushroom_soup"
+  }
+}

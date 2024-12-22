@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:glass",
+    "I": "minecraft:iron_block",
+    "W": "minecraft:wind_charge"
+  },
+  "pattern": [
+    "GGG",
+    "IWI",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:dehydrator"
+  }
+}

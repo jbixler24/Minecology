@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "cooked_oyster_mushroom",
+  "ingredient": "minecology:oyster_mushroom",
+  "result": {
+    "id": "minecology:cooked_oyster_mushroom"
+  }
+}

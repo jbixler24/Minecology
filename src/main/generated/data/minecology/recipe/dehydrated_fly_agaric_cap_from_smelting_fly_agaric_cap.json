@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "dehydrated_fly_agaric",
+  "ingredient": "minecology:fly_agaric_cap",
+  "result": {
+    "id": "minecology:dehydrated_fly_agaric_cap"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecology:item/cream_of_oyster_mushroom_soup"
+  }
+}
