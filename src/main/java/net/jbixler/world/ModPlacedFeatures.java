@@ -18,21 +18,18 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> FLY_AGARIC_PLACED_KEY = registerKey("fly_agaric_placed");
     public static final RegistryKey<PlacedFeature> OYSTER_MUSHROOM_PLACED_KEY = registerKey("oyster_mushroom_placed");
 
-
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context, FLY_AGARIC_PLACED_KEY, configuredFeatures.getOrThrow(
                 ModConfiguredFeatures.FLY_AGARIC_KEY),
-                RarityFilterPlacementModifier.of(32),
+                RarityFilterPlacementModifier.of(1),
                 SquarePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                 BiomePlacementModifier.of());
-
         register(context, OYSTER_MUSHROOM_PLACED_KEY, configuredFeatures.getOrThrow(
-                        ModConfiguredFeatures.FLY_AGARIC_KEY),
-                RarityFilterPlacementModifier.of(32),
-                SquarePlacementModifier.of(),
-                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                ModConfiguredFeatures.OYSTER_MUSHROOM_TREE_DECORATOR_KEY),
+                RarityFilterPlacementModifier.of(1),
+                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
                 BiomePlacementModifier.of());
     }
 
@@ -44,7 +41,6 @@ public class ModPlacedFeatures {
         context.register(key, new PlacedFeature(config, List.copyOf(modifiers)));
     }
 
-    // for bush
     private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> config, PlacementModifier... modifiers) {
         register(context, key, config, List.of(modifiers));
     }

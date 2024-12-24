@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "minecology:lions_mane_spore_print",
+    "P": "minecraft:paper"
+  },
+  "pattern": [
+    "   ",
+    " L ",
+    " P "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:lions_mane_spore_print"
+  }
+}

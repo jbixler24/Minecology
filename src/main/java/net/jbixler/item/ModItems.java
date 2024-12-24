@@ -16,14 +16,17 @@ import java.util.ArrayList;
 
 public class ModItems {
 
+    public static final Item FLY_AGARIC_SPORE_PRINT = registerItem("fly_agaric_spore_print", new Item.Settings(), FlyAgaricSporePrint.class);
     public static final Item FLY_AGARIC = registerItem("fly_agaric", new Item.Settings(), FlyAgaricItem.class);
     public static final Item FLY_AGARIC_CAP = registerItem("fly_agaric_cap", new Item.Settings().food(ModFoodComponents.FLY_AGARIC_CAP, ModFoodComponents.FLY_AGARIC_CAP_EFFECT), Item.class);
     public static final Item DEHYDRATED_FLY_AGARIC_CAP = registerItem("dehydrated_fly_agaric_cap", new Item.Settings().food(ModFoodComponents.DEHYDRATED_FLY_AGARIC_CAP, ModFoodComponents.DEHYDRATED_FLY_AGARIC_CAP_EFFECT), DehydratedFlyAgaricItem.class);
     public static final Item CROWN_OF_THE_MUSHROOM_FOREST = registerItem("crown_of_the_mushroom_forest", new Item.Settings(), CrownOfTheMushroomForest.class);
 
+    public static final Item LIONS_MANE_SPORE_PRINT = registerItem("lions_mane_spore_print", new Item.Settings(), LionsManeSporePrint.class);
     public static final Item LIONS_MANE = registerItem("lions_mane", new Item.Settings().food(ModFoodComponents.LIONS_MANE, ModFoodComponents.LIONS_MANE_EFFECT), LionsManeItem.class);
     public static final Item COOKED_LIONS_MANE = registerItem("cooked_lions_mane", new Item.Settings().food(ModFoodComponents.COOKED_LIONS_MANE, ModFoodComponents.COOKED_LIONS_MANE_EFFECT), CookedLionsManeItem.class);
 
+    public static final Item OYSTER_MUSHROOM_SPORE_PRINT = registerItem("oyster_mushroom_spore_print", new Item.Settings(), OysterMushroomSporePrint.class);
     public static final Item OYSTER_MUSHROOM = registerItem("oyster_mushroom", new Item.Settings().food(ModFoodComponents.OYSTER_MUSHROOM), OysterMushroomItem.class);
     public static final Item COOKED_OYSTER_MUSHROOM = registerItem("cooked_oyster_mushroom", new Item.Settings().food(ModFoodComponents.COOKED_OYSTER_MUSHROOM), CookedOysterMushroomItem.class);
     public static final Item CREAM_OF_OYSTER_MUSHROOM_SOUP = registerItem("cream_of_oyster_mushroom_soup", new Item.Settings().food(ModFoodComponents.CREAM_OF_OYSTER_MUSHROOM_SOUP), CreamofOysterMushroomSoupItem.class);
@@ -62,14 +65,17 @@ public class ModItems {
     /** Get all items in this mod **/
     public static ArrayList<Item> getItems() {
         ArrayList<Item> allItems = new ArrayList<>();
+        allItems.add(FLY_AGARIC_SPORE_PRINT);
         allItems.add(FLY_AGARIC);
         allItems.add(FLY_AGARIC_CAP);
         allItems.add(DEHYDRATED_FLY_AGARIC_CAP);
         allItems.add(CROWN_OF_THE_MUSHROOM_FOREST);
 
+        allItems.add(LIONS_MANE_SPORE_PRINT);
         allItems.add(LIONS_MANE);
         allItems.add(COOKED_LIONS_MANE);
 
+        allItems.add(OYSTER_MUSHROOM_SPORE_PRINT);
         allItems.add(OYSTER_MUSHROOM);
         allItems.add(COOKED_OYSTER_MUSHROOM);
         allItems.add(CREAM_OF_OYSTER_MUSHROOM_SOUP);

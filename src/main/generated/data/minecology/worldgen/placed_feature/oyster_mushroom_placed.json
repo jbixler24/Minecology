@@ -1,16 +1,13 @@
 {
-  "feature": "minecology:fly_agaric_configured",
+  "feature": "minecology:oyster_mushroom_tree_decorator",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 32
-    },
-    {
-      "type": "minecraft:in_square"
+      "chance": 1
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
+      "heightmap": "WORLD_SURFACE_WG"
     },
     {
       "type": "minecraft:biome"

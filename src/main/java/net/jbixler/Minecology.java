@@ -10,6 +10,8 @@ import net.jbixler.effects.ModEffects;
 import net.jbixler.item.ModArmorMaterials;
 import net.jbixler.item.ModItemGroups;
 import net.jbixler.item.ModItems;
+import net.jbixler.world.gen.ModWorldGeneration;
+import net.jbixler.world.gen.treedecorator.ModTreeDecoratorTypes;
 import net.minecraft.potion.Potions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +31,9 @@ public class Minecology implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModPotions.registerPotions();
 
-//		ModWorldGeneration.generateModWorldGen();
+		ModWorldGeneration.generateModWorldGen();
+
+		ModTreeDecoratorTypes.registerTreeDecoratorTypes();
 
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.AWKWARD, ModItems.DEHYDRATED_FLY_AGARIC_CAP, ModPotions.AMANITA_EXTRACT);

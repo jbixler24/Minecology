@@ -5,6 +5,8 @@
   "item.minecology.oyster_mushroom_block": "Oyster Mushroom Block",
 
   "item.minecology.crown_of_the_mushroom_forest": "Crown of the Mushroom Forest",
+
+  "item.minecology.fly_agaric_spore_print": "Fly Agaric Spore Print",
   "item.minecology.fly_agaric": "Fly Agaric",
   "item.minecology.fly_agaric_cap": "Fly Agaric Cap",
   "item.minecology.dehydrated_fly_agaric_cap": "Dehydrated Fly Agaric Cap",
@@ -12,9 +14,11 @@
   "item.minecraft.splash_potion.effect.amanita_extract": "Topical Amanita Extract",
   "item.minecraft.lingering_potion.effect.amanita_extract": "Lingering Amanita Extract",
 
+  "item.minecology.lions_mane_spore_print": "Lion's Mane Spore Print",
   "item.minecology.lions_mane": "Lion's Mane",
   "item.minecology.cooked_lions_mane": "Cooked Lion's Mane",
 
+  "item.minecology.oyster_mushroom_spore_print": "Oyster Mushroom Spore Print",
   "item.minecology.oyster_mushroom": "Oyster Mushroom",
   "item.minecology.cooked_oyster_mushroom":"Cooked Oyster Mushroom",
   "item.minecology.cream_of_oyster_mushroom_soup": "Cream of Oyster Mushroom Soup",

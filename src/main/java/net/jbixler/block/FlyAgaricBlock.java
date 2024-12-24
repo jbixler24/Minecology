@@ -6,10 +6,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
@@ -34,13 +32,7 @@ public class FlyAgaricBlock extends AbstractMushroomBlock {
 
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        List<BlockPos> adjacentBlocks = List.of(pos.up(), pos.north(), pos.east(), pos.west(), pos.south());
-        for (BlockPos blockPos : adjacentBlocks) {
-            if (PLACEABLE_BLOCKS.contains(world.getBlockState(blockPos).getBlock())) {
-                return true;
-            }
-        }
-        return false;
+        return PLACEABLE_BLOCKS.contains(world.getBlockState(pos.down()).getBlock());
     }
 
     @Override

@@ -33,13 +33,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('F', ModItems.DEHYDRATED_FLY_AGARIC_CAP)
                         .criterion(hasItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP), conditionsFromItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP))
                         .offerTo(exporter);
-                createShaped(RecipeCategory.COMBAT,ModItems.CROWN_OF_THE_MUSHROOM_FOREST, 1)
-                        .pattern("  ")
-                        .pattern("FFF")
-                        .pattern("F F")
-                        .input('F', ModItems.DEHYDRATED_FLY_AGARIC_CAP)
-                        .criterion(hasItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP), conditionsFromItem(ModItems.DEHYDRATED_FLY_AGARIC_CAP))
-                        .offerTo(exporter);
 
                 /* FOOD RECIPES */
 
@@ -60,6 +53,41 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.COOKED_CHICKEN), conditionsFromItem(Items.COOKED_CHICKEN))
                         .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
                         .criterion(hasItem(Items.BOWL), conditionsFromItem(Items.BOWL))
+                        .offerTo(exporter);
+
+                /* CULTIVATION SYSTEM RECIPES */
+
+                /* Fly Agaric Spore Print */
+                createShaped(RecipeCategory.MISC, ModItems.FLY_AGARIC_SPORE_PRINT)
+                        .pattern("   ")
+                        .pattern(" F ")
+                        .pattern(" P ")
+                        .input('F', ModItems.FLY_AGARIC_CAP)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(ModItems.FLY_AGARIC_CAP), conditionsFromItem(ModItems.FLY_AGARIC_CAP))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+
+                /* Lion's Mane Spore Print */
+                createShaped(RecipeCategory.MISC, ModItems.LIONS_MANE_SPORE_PRINT)
+                        .pattern("   ")
+                        .pattern(" L ")
+                        .pattern(" P ")
+                        .input('L', ModItems.LIONS_MANE_SPORE_PRINT)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(ModItems.LIONS_MANE), conditionsFromItem(ModItems.LIONS_MANE))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+
+                /* Oyster Mushroom Spore Print */
+                createShaped(RecipeCategory.MISC, ModItems.OYSTER_MUSHROOM_SPORE_PRINT)
+                        .pattern("   ")
+                        .pattern(" O ")
+                        .pattern(" P ")
+                        .input('O', ModItems.OYSTER_MUSHROOM)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(ModItems.OYSTER_MUSHROOM), conditionsFromItem(ModItems.OYSTER_MUSHROOM))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
                         .offerTo(exporter);
 
                 /* MISC RECIPES */

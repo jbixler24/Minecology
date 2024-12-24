@@ -3,10 +3,8 @@ package net.jbixler.world.gen;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.jbixler.world.ModPlacedFeatures;
-import net.minecraft.block.BeehiveBlock;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 
 public class ModMushroomGeneration {
     public static void generateMushrooms() {
