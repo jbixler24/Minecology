@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": "minecology:dehydrated_fly_agaric_cap"
+  },
+  "pattern": [
+    "FFF",
+    "F F",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:crown_of_the_mushroom_forest"
+  }
+}

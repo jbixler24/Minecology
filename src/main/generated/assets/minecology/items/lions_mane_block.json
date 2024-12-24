@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecology:item/lions_mane_block"
+    "model": "minecology:block/lions_mane_block"
   }
 }

@@ -1,7 +1,10 @@
 package net.jbixler.block;
 
+import net.jbixler.item.ModItems;
 import net.minecraft.block.*;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -12,6 +15,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -26,25 +30,6 @@ public class OysterMushroomBlock extends AbstractMushroomBlock {
     }
 
     @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        Direction newDirection = Direction.NORTH;
-
-        Block northBlock = world.getBlockState(pos.north()).getBlock();
-        Block eastBlock = world.getBlockState(pos.east()).getBlock();
-        Block westBlock = world.getBlockState(pos.west()).getBlock();
-
-        if (PLACEABLE_BLOCKS.contains(northBlock)) {
-            newDirection = Direction.SOUTH;
-        } else if (PLACEABLE_BLOCKS.contains(eastBlock)) {
-            newDirection = Direction.WEST;
-        } else if (PLACEABLE_BLOCKS.contains(westBlock)) {
-            newDirection = Direction.EAST;
-        }
-
-        world.setBlockState(pos, state.with(FACING, newDirection));
-    }
-
-    @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         List<BlockPos> adjacentBlocks = List.of(pos.up(), pos.north(), pos.east(), pos.west(), pos.south());
         for (BlockPos blockPos : adjacentBlocks) {
@@ -56,13 +41,108 @@ public class OysterMushroomBlock extends AbstractMushroomBlock {
     }
 
     @Override
+    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
+        Direction newDirection = Direction.NORTH;
+
+        Block northBlock = world.getBlockState(pos.north()).getBlock();
+        Block eastBlock = world.getBlockState(pos.east()).getBlock();
+        Block westBlock = world.getBlockState(pos.west()).getBlock();
+
+        if (PLACEABLE_BLOCKS.contains(northBlock)) {
+            newDirection = Direction.SOUTH;
+//            countBlocks(world, pos, state, northBlock);
+        } else if (PLACEABLE_BLOCKS.contains(eastBlock)) {
+            newDirection = Direction.WEST;
+//            countBlocks(world, pos, state, eastBlock);
+        } else if (PLACEABLE_BLOCKS.contains(westBlock)) {
+            newDirection = Direction.EAST;
+//            countBlocks(world, pos, state, westBlock);
+        } else {
+//            countBlocks(world, pos, state, world.getBlockState(pos.south()).getBlock());
+        }
+
+        world.setBlockState(pos, state.with(FACING, newDirection));
+    }
+
+//    private void countBlocks(World world, BlockPos pos, BlockState state, Block block) {
+//        Block attachedBlockType = world.getBlockState(pos.south()).getBlock();
+//
+//        if (!PLACEABLE_BLOCKS.contains(attachedBlockType)) {
+//            return;
+//        }
+//
+//        BlockPos attachedPos = pos.south();
+//
+//        if (state == state.with(FACING, Direction.EAST)) {
+//            attachedBlockType = world.getBlockState(pos.west()).getBlock();
+//            attachedPos = pos.west();
+//        } else if (state == state.with(FACING, Direction.WEST)) {
+//            attachedBlockType = world.getBlockState(pos.east()).getBlock();
+//            attachedPos = pos.east();
+//        } else if (state == state.with(FACING, Direction.SOUTH)) {
+//            attachedBlockType = world.getBlockState(pos.north()).getBlock();
+//            attachedPos = pos.north();
+//        }
+//
+//        Set<BlockPos> usedPos = new HashSet<>();
+//        usedPos.add(attachedPos);
+//
+//        BlockPos currPos = attachedPos;
+//        Set<BlockPos> adjacentBlockPos = getAdjacentBlocks(currPos);
+//        adjacentBlockPos = Sets.difference(adjacentBlockPos, usedPos);
+//        int counter = 0;
+//
+//        while (anyAdjacent(world, adjacentBlockPos, attachedBlockType)) {
+//            for (BlockPos bp : adjacentBlockPos) {
+//                if (!(usedPos.contains(bp)) && world.getBlockState(bp).getBlock() == attachedBlockType) {
+//                    counter += 1;
+//                    usedPos.add(bp);
+//                }
+//            }
+//            adjacentBlockPos = geta
+//        }
+//
+//        System.out.printf("Num. adjacent blocks: %d", counter);
+//    }
+//
+//    private Set<BlockPos> getAdjacentBlocks(BlockPos pos) {
+//        Set<BlockPos> adjacentBlocks = new HashSet<>();
+//        adjacentBlocks.add(pos.north());
+//        adjacentBlocks.add(pos.east());
+//        adjacentBlocks.add(pos.south());
+//        adjacentBlocks.add(pos.west());
+//        return adjacentBlocks;
+//    }
+//
+//    private boolean anyAdjacent(World world, Set<BlockPos> adjacentPos, Block block) {
+//        for (BlockPos bp : adjacentPos) {
+//            if (world.getBlockState(bp).getBlock() == block) {
+//                return true;
+//            }
+//        }
+//    }
+
+    @Override
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (world.random.nextInt(Math.round(1 / WILD_GROWTH_PROBABILITY)) == 0) {
+        if (world.random.nextFloat() > WILD_GROWTH_PROBABILITY) {
             int i = state.get(AGE);
             if (i < MAX_AGE) {
                 world.setBlockState(pos, state.with(AGE, i + 1), 2);
             }
         }
+    }
+
+    @Override
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        this.spawnBreakParticles(world, player, pos, state);
+        int itemCount = state.get(AGE) == MAX_AGE ? world.random.nextBetween(1, 2) : 0;
+        if (itemCount > 0) {
+            ItemEntity itemEntity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.OYSTER_MUSHROOM, itemCount));
+            world.spawnEntity(itemEntity);
+        }
+
+        world.emitGameEvent(GameEvent.BLOCK_DESTROY, pos, GameEvent.Emitter.of(player, state));
+        return state;
     }
 
     // TODO: make smaller voxel shapes for age=0, age=1

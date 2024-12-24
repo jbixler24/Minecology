@@ -5,6 +5,7 @@ import net.jbixler.block.FlyAgaricBlock;
 import net.jbixler.block.ModBlocks;
 import net.jbixler.block.OysterMushroomBlock;
 import net.minecraft.registry.Registerable;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
@@ -15,6 +16,7 @@ public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLY_AGARIC_KEY = registerKey("fly_agaric_configured");
     public static final RegistryKey<ConfiguredFeature<?, ?>> OYSTER_MUSHROOM_KEY = registerKey("oyster_mushroom_configured");
+//    public static final RegistryKey<ConfiguredFeature<?, ?>>
 
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {

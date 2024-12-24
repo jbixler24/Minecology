@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.jbixler.datagen.*;
 import net.jbixler.world.ModConfiguredFeatures;
 import net.jbixler.world.ModPlacedFeatures;
-import net.minecraft.block.CocoaBlock;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 

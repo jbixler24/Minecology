@@ -10,8 +10,8 @@ import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.registry.Registries;
 
 public class ModFoodComponents {
-    public static final FoodComponent FLY_AGARIC_CAP = new FoodComponent.Builder().nutrition(2).saturationModifier(0.1f).build();
-    public static final FoodComponent DEHYDRATED_FLY_AGARIC_CAP = new FoodComponent.Builder().nutrition(2).saturationModifier(0.1f).build();
+    public static final FoodComponent FLY_AGARIC_CAP = new FoodComponent.Builder().alwaysEdible().nutrition(2).saturationModifier(0.1f).build();
+    public static final FoodComponent DEHYDRATED_FLY_AGARIC_CAP = new FoodComponent.Builder().alwaysEdible().nutrition(2).saturationModifier(0.1f).build();
 
     public static final FoodComponent LIONS_MANE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.1f).build();
     public static final FoodComponent COOKED_LIONS_MANE = new FoodComponent.Builder().nutrition(8).saturationModifier(0.25f).build();
