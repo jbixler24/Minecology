@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": "minecology:porcini",
+    "P": "minecraft:paper"
+  },
+  "pattern": [
+    "   ",
+    " O ",
+    " P "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:porcini_spore_print"
+  }
+}

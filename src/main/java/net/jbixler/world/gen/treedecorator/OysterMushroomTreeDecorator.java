@@ -31,12 +31,11 @@ public class OysterMushroomTreeDecorator extends TreeDecorator {
     @Override
     public void generate(Generator generator) {
         Random random = generator.getRandom();
-        if (random.nextFloat() < this.probability) {
-            System.out.print("Trying to generate log");
+        if (!(random.nextFloat() >= this.probability)) {
             List<BlockPos> logPositions = generator.getLogPositions();
             if (!logPositions.isEmpty()) {
                 for (BlockPos log : logPositions) {
-                    if (random.nextFloat() < 0.25f) {
+                    if (!(random.nextFloat() >= 0.25f)) {
                         float placement = random.nextFloat();
                         if (generator.isAir(log.north()) && placement < 0.25f) {
                             replaceAir(generator, log.north(), Direction.NORTH);
@@ -54,6 +53,7 @@ public class OysterMushroomTreeDecorator extends TreeDecorator {
     }
 
     private void replaceAir(Generator generator, BlockPos pos, Direction direction) {
+        System.out.println(String.format("Trying to generate oyster mushroom at %d, %d, %d", pos.getX(), pos.getY(), pos.getZ()));
         generator.replace(pos, ModBlocks.OYSTER_MUSHROOM_BLOCK.getDefaultState().with(OysterMushroomBlock.AGE,
                 generator.getRandom().nextInt(OysterMushroomBlock.MAX_AGE)).with(OysterMushroomBlock.FACING, direction));
     }

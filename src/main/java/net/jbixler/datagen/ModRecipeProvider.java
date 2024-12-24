@@ -57,6 +57,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 /* CULTIVATION SYSTEM RECIPES */
 
+                /* Chanterelle Spore Print */
+                createShaped(RecipeCategory.MISC, ModItems.CHANTERELLE_SPORE_PRINT)
+                        .pattern("   ")
+                        .pattern(" C ")
+                        .pattern(" P ")
+                        .input('C', ModItems.CHANTERELLE)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(ModItems.CHANTERELLE), conditionsFromItem(ModItems.CHANTERELLE))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+
                 /* Fly Agaric Spore Print */
                 createShaped(RecipeCategory.MISC, ModItems.FLY_AGARIC_SPORE_PRINT)
                         .pattern("   ")
@@ -87,6 +98,28 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('O', ModItems.OYSTER_MUSHROOM)
                         .input('P', Items.PAPER)
                         .criterion(hasItem(ModItems.OYSTER_MUSHROOM), conditionsFromItem(ModItems.OYSTER_MUSHROOM))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+
+                /* Oyster Mushroom Spore Print */
+                createShaped(RecipeCategory.MISC, ModItems.PORCINI_SPORE_PRINT)
+                        .pattern("   ")
+                        .pattern(" O ")
+                        .pattern(" P ")
+                        .input('O', ModItems.PORCINI)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(ModItems.PORCINI), conditionsFromItem(ModItems.PORCINI))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+
+                /* Reishi Spore Print */
+                createShaped(RecipeCategory.MISC, ModItems.REISHI_SPORE_PRINT)
+                        .pattern("   ")
+                        .pattern(" R ")
+                        .pattern(" P ")
+                        .input('R', ModItems.REISHI)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(ModItems.REISHI), conditionsFromItem(ModItems.REISHI))
                         .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
                         .offerTo(exporter);
 

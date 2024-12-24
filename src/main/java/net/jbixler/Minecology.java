@@ -44,7 +44,16 @@ public class Minecology implements ModInitializer {
 	 *
 	 * @param message Message to be logged
 	 */
-	public static void log(String message) {
-		LOGGER.info("[{}] {}", MOD_ID.toUpperCase(), message);
+	public static void log(String message, Object... args) {
+		LOGGER.info("[{}] {}", MOD_ID.toUpperCase(), String.format(message, args));
+	}
+
+	/** Logs a debug message to the system console
+	 *
+	 * @param message Message (formatted or not) to be logged as a debug message
+	 * @param args Formatting arguments
+	 */
+	public static void debug(String message, Object... args) {
+		LOGGER.debug("[{}] {}", MOD_ID.toUpperCase(), String.format(message, args));
 	}
 }

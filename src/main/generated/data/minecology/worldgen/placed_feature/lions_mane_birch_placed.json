@@ -1,16 +1,13 @@
 {
-  "feature": "minecology:fly_agaric_configured",
+  "feature": "minecology:lions_mane_birch_decorator",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 32
-    },
-    {
-      "type": "minecraft:in_square"
+      "chance": 64
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
+      "heightmap": "WORLD_SURFACE_WG"
     },
     {
       "type": "minecraft:biome"

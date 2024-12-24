@@ -4,7 +4,7 @@
     "decorators": [
       {
         "type": "minecology:oyster_mushroom_tree_decorator_type",
-        "probability": 0.2
+        "probability": 1.0
       }
     ],
     "dirt_provider": {
@@ -22,7 +22,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:oak_leaves",
+        "Name": "minecraft:birch_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -47,7 +47,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:oak_log",
+        "Name": "minecraft:birch_log",
         "Properties": {
           "axis": "y"
         }

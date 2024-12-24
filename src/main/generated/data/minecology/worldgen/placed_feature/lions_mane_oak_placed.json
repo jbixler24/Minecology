@@ -1,9 +1,9 @@
 {
-  "feature": "minecology:oyster_mushroom_tree_decorator",
+  "feature": "minecology:lions_mane_oak_decorator",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 1
+      "chance": 64
     },
     {
       "type": "minecraft:heightmap",

@@ -13,10 +13,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
-public class AbstractMushroomBlock extends HorizontalFacingBlock {
+public class MushroomBlock extends HorizontalFacingBlock {
     public static final IntProperty AGE = Properties.AGE_2;
 
-    public AbstractMushroomBlock(Settings settings) {
+    public MushroomBlock(Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(AGE, 0));
     }

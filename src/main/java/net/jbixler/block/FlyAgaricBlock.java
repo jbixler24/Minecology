@@ -20,7 +20,7 @@ import net.minecraft.world.event.GameEvent;
 
 import java.util.List;
 
-public class FlyAgaricBlock extends AbstractMushroomBlock {
+public class FlyAgaricBlock extends MushroomBlock {
     public static final float WILD_GROWTH_PROBABILITY = 0.1f;
     public static final int MAX_AGE = 2;
     public static final List<Block> PLACEABLE_BLOCKS = List.of(Blocks.GRASS_BLOCK, Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT);

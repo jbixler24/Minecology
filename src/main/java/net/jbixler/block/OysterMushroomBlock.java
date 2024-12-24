@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class OysterMushroomBlock extends AbstractMushroomBlock {
+public class OysterMushroomBlock extends MushroomBlock {
     public static final float WILD_GROWTH_PROBABILITY = 0.1f;
     public static final int MAX_AGE = 2;
     public static final List<Block> PLACEABLE_BLOCKS = List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG, Blocks.BIRCH_LOG);

@@ -16,9 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModBlocks {
+
+    public static final Block CHANTERELLE_BLOCK = registerBlock("chanterelle_block", AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.NETHER_WART), ChanterelleBlock.class, new Item.Settings());
     public static final Block FLY_AGARIC_BLOCK = registerBlock("fly_agaric_block", AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.NETHER_WART), FlyAgaricBlock.class, new Item.Settings());
     public static final Block LIONS_MANE_BLOCK = registerBlock("lions_mane_block", AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.NETHER_WART), LionsManeBlock.class, new Item.Settings());
+    public static final Block MOREL_BLOCK = registerBlock("morel_block", AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.NETHER_WART), MorelBlock.class, new Item.Settings());
     public static final Block OYSTER_MUSHROOM_BLOCK = registerBlock("oyster_mushroom_block", AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.NETHER_WART), OysterMushroomBlock.class, new Item.Settings());
+    public static final Block PORCINI_BLOCK = registerBlock("porcini_block", AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.NETHER_WART), PorciniBlock.class, new Item.Settings());
+    public static final Block REISHI_BLOCK = registerBlock("reishi_block", AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.NETHER_WART), ReishiMushroomBlock.class, new Item.Settings());
 
     public static final Block DEHYDRATOR_BLOCK = registerBlock("dehydrator", AbstractBlock.Settings.create().requiresTool().strength(3.5F), DehydratorBlock.class, new Item.Settings());
 
@@ -53,18 +58,20 @@ public class ModBlocks {
     }
 
     public static List<Block> getBlocks() {
-        List<Block> allBlocks = new ArrayList<>();
-        allBlocks.add(FLY_AGARIC_BLOCK);
-        allBlocks.add(LIONS_MANE_BLOCK);
-        allBlocks.add(OYSTER_MUSHROOM_BLOCK);
+        List<Block> allBlocks = new ArrayList<>(getMushroomBlocks());
         allBlocks.add(DEHYDRATOR_BLOCK);
         return allBlocks;
     }
 
     public static List<Block> getMushroomBlocks() {
         List<Block> allBlocks = new ArrayList<>();
+        allBlocks.add(CHANTERELLE_BLOCK);
         allBlocks.add(FLY_AGARIC_BLOCK);
+        allBlocks.add(LIONS_MANE_BLOCK);
+        allBlocks.add(MOREL_BLOCK);
         allBlocks.add(OYSTER_MUSHROOM_BLOCK);
+        allBlocks.add(PORCINI_BLOCK);
+        allBlocks.add(REISHI_BLOCK);
         return allBlocks;
     }
 }
