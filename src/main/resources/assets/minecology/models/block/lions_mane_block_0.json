@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "minecology:block/lions_mane_block_0",
-		"particle": "minecology:block/lions_mane_block_0"
+		"particle": "minecology:item/lions_mane"
 	},
 	"elements": [
 		{

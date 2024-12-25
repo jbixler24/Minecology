@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "minecology:block/oyster_mushroom_block_0",
-		"particle": "minecology:block/oyster_mushroom_block_0"
+		"particle": "minecology:item/oyster_mushroom"
 	},
 	"elements": [
 		{

@@ -1,9 +1,9 @@
 {
-  "feature": "minecology:lions_mane_birch_decorator",
+  "feature": "minecology:reishi_oak_decorator",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 64
+      "chance": 128
     },
     {
       "type": "minecraft:heightmap",

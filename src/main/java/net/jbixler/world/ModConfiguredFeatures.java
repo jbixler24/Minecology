@@ -6,6 +6,7 @@ import net.jbixler.block.FlyAgaricBlock;
 import net.jbixler.block.ModBlocks;
 import net.jbixler.world.gen.treedecorator.LionsManeTreeDecorator;
 import net.jbixler.world.gen.treedecorator.OysterMushroomTreeDecorator;
+import net.jbixler.world.gen.treedecorator.ReishiTreeDecorator;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -42,9 +43,8 @@ public class ModConfiguredFeatures {
 
 //    public static final RegistryKey<ConfiguredFeature<?, ?>> PORCINI_PATCH_KEY = registerKey("porcini_configured");
 
-//    public static final RegistryKey<ConfiguredFeature<?, ?>> REISHI_OAK_DECORATOR_KEY = registerKey("reishi_oak_decorator");
-//    public static final RegistryKey<ConfiguredFeature<?, ?>> REISHI_FANCY_OAK_DECORATOR_KEY = registerKey("reishi_fancy_oak_decorator");
-
+    public static final RegistryKey<ConfiguredFeature<?, ?>> REISHI_OAK_DECORATOR_KEY = registerKey("reishi_oak_decorator");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> REISHI_FANCY_OAK_DECORATOR_KEY = registerKey("reishi_fancy_oak_decorator");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
 //        registerChanterelleCF(context);
@@ -53,7 +53,7 @@ public class ModConfiguredFeatures {
 //        registerMorelCF(context);
         registerOysterMushroomCF(context);
 //        registerPorciniCF(context);
-//        registerReishiCF(context);
+        registerReishiCF(context);
     }
 
     // TODO: implement
@@ -194,7 +194,24 @@ public class ModConfiguredFeatures {
      * @param context Registerable context
      */
     public static void registerReishiCF(Registerable<ConfiguredFeature<?, ?>> context) {
+        /* Oyster Mushroom oak tree CF */
+        register(context, REISHI_OAK_DECORATOR_KEY, Feature.TREE,
+                (new TreeFeatureConfig.Builder(BlockStateProvider.of(Blocks.OAK_LOG.getDefaultState()),
+                        new StraightTrunkPlacer(4, 2, 0),
+                        BlockStateProvider.of(Blocks.OAK_LEAVES.getDefaultState()),
+                        new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                        new TwoLayersFeatureSize(1, 0, 1))
+                        .decorators(ImmutableList.of(new ReishiTreeDecorator(1.0f))).build())
+        );
 
+        /* Oyster Mushroom fancy oak tree CF */
+        register(context, REISHI_FANCY_OAK_DECORATOR_KEY, Feature.TREE,
+                (new TreeFeatureConfig.Builder(BlockStateProvider.of(Blocks.OAK_LOG),
+                        new LargeOakTrunkPlacer(3, 11, 0),
+                        BlockStateProvider.of(Blocks.OAK_LEAVES),
+                        new LargeOakFoliagePlacer(ConstantIntProvider.create(2),ConstantIntProvider.create(4), 4),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4)))).ignoreVines().decorators(ImmutableList.of(new ReishiTreeDecorator(1.0f))).build()
+        );
     }
 
     /** Creates a RegistryKey for the configured feature

@@ -1,26 +1,11 @@
 package net.jbixler.util;
 
-import net.jbixler.block.LionsManeBlock;
-import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 
 import java.util.List;
 
 public class WorldGenUtil {
-
-    /** Tree decorator util method to replace air block with decorator block
-     *
-     * @param generator Tree decorator generator
-     * @param pos Air BlockPos
-     * @param direction Side of block to place at
-     */
-    public static void replaceAir(TreeDecorator.Generator generator, Block block, BlockPos pos, Direction direction, String blockName) {
-        System.out.println(String.format("Trying to generate %s at %d, %d, %d", blockName, pos.getX(), pos.getY(), pos.getZ()));
-        generator.replace(pos, block.getDefaultState().with(LionsManeBlock.AGE,
-                generator.getRandom().nextInt(LionsManeBlock.MAX_AGE)).with(LionsManeBlock.FACING, direction));
-    }
 
     /** Gets log positions with at least one adjacent air block
      *

@@ -39,8 +39,8 @@ public class ModPlacedFeatures {
 
 //    public static final RegistryKey<PlacedFeature> PORCINI_PLACED_KEY = registerKey("porcini_placed");
 
-//    public static final RegistryKey<PlacedFeature> REISHI_OAK_PLACED_KEY = registerKey("reishi_oak_placed");
-//    public static final RegistryKey<PlacedFeature> REISHI_FANCY_OAK_PLACED_KEY = registerKey("reishi_fancy_oak_placed");
+    public static final RegistryKey<PlacedFeature> REISHI_OAK_PLACED_KEY = registerKey("reishi_oak_placed");
+    public static final RegistryKey<PlacedFeature> REISHI_FANCY_OAK_PLACED_KEY = registerKey("reishi_fancy_oak_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -50,7 +50,7 @@ public class ModPlacedFeatures {
 //        registerMorelPF(context, configuredFeatures);
         registerOysterMushroomPF(context, configuredFeatures);
 //        registerPorciniPF(context, configuredFeatures);
-//        registerReishiPF(context, configuredFeatures);
+        registerReishiPF(context, configuredFeatures);
     }
 
     // TODO: implement
@@ -86,30 +86,30 @@ public class ModPlacedFeatures {
         /* Lion's mane regular oak tree placed feature */
         register(context, LIONS_MANE_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_OAK_DECORATOR_KEY),
-                RarityFilterPlacementModifier.of(defaultChance),
-                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
-                BiomePlacementModifier.of());
+                        RarityFilterPlacementModifier.of(defaultChance),
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of());
 
         /* Lion's mane fancy oak tree placed feature */
         register(context, LIONS_MANE_FANCY_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_FANCY_OAK_DECORATOR_KEY),
-                RarityFilterPlacementModifier.of(defaultChance * 2),
-                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
-                BiomePlacementModifier.of());
+                        RarityFilterPlacementModifier.of(defaultChance * 2),
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of());
 
         /* Lion's mane large oak tree placed feature */
         register(context, LIONS_MANE_BIRCH_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_BIRCH_DECORATOR_KEY),
-                RarityFilterPlacementModifier.of(defaultChance),
-                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
-                BiomePlacementModifier.of());
+                        RarityFilterPlacementModifier.of(defaultChance),
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of());
 
         /* Lion's mane super birch tree placed feature */
         register(context, LIONS_MANE_SUPER_BIRCH_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_SUPER_BIRCH_DECORATOR_TREE),
-                RarityFilterPlacementModifier.of(defaultChance),
-                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
-                BiomePlacementModifier.of());
+                    RarityFilterPlacementModifier.of(defaultChance),
+                    PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                    BiomePlacementModifier.of());
     }
 
     // TODO: implement
@@ -132,28 +132,28 @@ public class ModPlacedFeatures {
         register(context, OYSTER_MUSHROOM_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.OYSTER_MUSHROOM_OAK_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance),
-                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
                         BiomePlacementModifier.of());
 
         /* Oyster Mushroom fancy oak tree placed feature */
         register(context, OYSTER_MUSHROOM_FANCY_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.OYSTER_MUSHROOM_FANCY_OAK_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance * 2),
-                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
                         BiomePlacementModifier.of());
 
         /* Oyster Mushroom birch tree placed feature */
         register(context, OYSTER_MUSHROOM_BIRCH_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.OYSTER_MUSHROOM_BIRCH_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance),
-                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
                         BiomePlacementModifier.of());
 
         /* Oyster Mushroom super birch tree placed feature */
         register(context, OYSTER_MUSHROOM_SUPER_BIRCH_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.OYSTER_MUSHROOM_SUPER_BIRCH_DECORATOR_TREE),
                         RarityFilterPlacementModifier.of(defaultChance),
-                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
                         BiomePlacementModifier.of());
     }
 
@@ -171,8 +171,22 @@ public class ModPlacedFeatures {
      *
      * @param context Registerable context
      */
-    public static void registerReishiMushroomPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
-        int defaultChance = 32;
+    public static void registerReishiPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
+        int defaultChance = 128;
+
+        /* Reishi regular oak tree placed feature */
+        register(context, REISHI_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
+                        ModConfiguredFeatures.REISHI_OAK_DECORATOR_KEY),
+                        RarityFilterPlacementModifier.of(defaultChance),
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of());
+
+        /* Reishi fancy oak tree placed feature */
+        register(context, REISHI_FANCY_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
+                        ModConfiguredFeatures.REISHI_FANCY_OAK_DECORATOR_KEY),
+                        RarityFilterPlacementModifier.of(defaultChance * 2),
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of());
     }
 
     /** Creates a RegistryKey for the configured feature

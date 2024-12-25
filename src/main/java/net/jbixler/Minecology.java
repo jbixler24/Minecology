@@ -54,6 +54,6 @@ public class Minecology implements ModInitializer {
 	 * @param args Formatting arguments
 	 */
 	public static void debug(String message, Object... args) {
-		LOGGER.debug("[{}] {}", MOD_ID.toUpperCase(), String.format(message, args));
+		LOGGER.info("[{}|DEBUG] {}", MOD_ID.toUpperCase(), String.format(message, args));
 	}
 }

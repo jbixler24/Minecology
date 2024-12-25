@@ -2,8 +2,10 @@ package net.jbixler.world.gen.treedecorator;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import net.jbixler.Minecology;
 import net.jbixler.block.ModBlocks;
 import net.jbixler.block.OysterMushroomBlock;
+import net.jbixler.util.WorldGenUtil;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -28,32 +30,39 @@ public class OysterMushroomTreeDecorator extends TreeDecorator {
         return ModTreeDecoratorTypes.OYSTER_MUSHROOM_TREE_DECORATOR_TYPE;
     }
 
+    /** Generates this tree decorator **/
     @Override
     public void generate(Generator generator) {
         Random random = generator.getRandom();
         if (!(random.nextFloat() >= this.probability)) {
-            List<BlockPos> logPositions = generator.getLogPositions();
+            List<BlockPos> logPositions = WorldGenUtil.getValidLogPositions(generator);
             if (!logPositions.isEmpty()) {
-                for (BlockPos log : logPositions) {
-                    if (!(random.nextFloat() >= 0.25f)) {
-                        float placement = random.nextFloat();
-                        if (generator.isAir(log.north()) && placement < 0.25f) {
-                            replaceAir(generator, log.north(), Direction.NORTH);
-                        } else if (generator.isAir(log.east()) && placement >= 0.25f && placement < 0.5f) {
-                            replaceAir(generator, log.east(), Direction.EAST);
-                        } else if (generator.isAir(log.south()) && placement >= 0.5f && placement < 0.75f) {
-                            replaceAir(generator, log.south(), Direction.SOUTH);
-                        } else if (generator.isAir(log.west()) && placement < 1.0f) {
-                            replaceAir(generator, log.west(), Direction.WEST);
-                        }
+                int numLogs = Math.max(1, Math.floorDiv(logPositions.size(), 2));
+                for (int i = 0; i < numLogs; i++) {
+                    BlockPos logChoice = logPositions.get(random.nextInt(logPositions.size()));
+                    float placement = random.nextFloat();
+                    if (generator.isAir(logChoice.north()) && placement < 0.25f) {
+                        replaceAir(generator, logChoice.north(), Direction.NORTH);
+                    } else if (generator.isAir(logChoice.east()) && placement >= 0.25f && placement < 0.5f) {
+                        replaceAir(generator, logChoice.east(), Direction.EAST);
+                    } else if (generator.isAir(logChoice.south()) && placement >= 0.5f && placement < 0.75f) {
+                        replaceAir(generator, logChoice.south(), Direction.SOUTH);
+                    } else if (generator.isAir(logChoice.west()) && placement < 1.0f) {
+                        replaceAir(generator, logChoice.west(), Direction.WEST);
                     }
                 }
             }
         }
     }
 
-    private void replaceAir(Generator generator, BlockPos pos, Direction direction) {
-        System.out.println(String.format("Trying to generate oyster mushroom at %d, %d, %d", pos.getX(), pos.getY(), pos.getZ()));
+    /** Replaces air with an Oyster Mushroom block
+     *
+     * @param generator Tree decorator generator
+     * @param pos Air BlockPos
+     * @param direction Direction of Oyster Mushroom block
+     */
+    private void replaceAir(TreeDecorator.Generator generator, BlockPos pos, Direction direction) {
+        Minecology.debug(String.format("Trying to generate oyster mushroom at %d, %d, %d", pos.getX(), pos.getY(), pos.getZ()));
         generator.replace(pos, ModBlocks.OYSTER_MUSHROOM_BLOCK.getDefaultState().with(OysterMushroomBlock.AGE,
                 generator.getRandom().nextInt(OysterMushroomBlock.MAX_AGE)).with(OysterMushroomBlock.FACING, direction));
     }
