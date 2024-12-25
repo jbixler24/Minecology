@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "P": "minecraft:paper",
-    "R": "minecology:reishi"
+    "M": "minecology:reishi",
+    "P": "minecraft:paper"
   },
   "pattern": [
     "   ",
-    " R ",
+    " M ",
     " P "
   ],
   "result": {

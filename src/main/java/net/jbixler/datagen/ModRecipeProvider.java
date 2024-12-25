@@ -4,8 +4,11 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.jbixler.block.ModBlocks;
 import net.jbixler.item.ModItems;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
@@ -57,71 +60,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 /* CULTIVATION SYSTEM RECIPES */
 
-                /* Chanterelle Spore Print */
-                createShaped(RecipeCategory.MISC, ModItems.CHANTERELLE_SPORE_PRINT)
-                        .pattern("   ")
-                        .pattern(" C ")
-                        .pattern(" P ")
-                        .input('C', ModItems.CHANTERELLE)
-                        .input('P', Items.PAPER)
-                        .criterion(hasItem(ModItems.CHANTERELLE), conditionsFromItem(ModItems.CHANTERELLE))
-                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                        .offerTo(exporter);
-
-                /* Fly Agaric Spore Print */
-                createShaped(RecipeCategory.MISC, ModItems.FLY_AGARIC_SPORE_PRINT)
-                        .pattern("   ")
-                        .pattern(" F ")
-                        .pattern(" P ")
-                        .input('F', ModItems.FLY_AGARIC_CAP)
-                        .input('P', Items.PAPER)
-                        .criterion(hasItem(ModItems.FLY_AGARIC_CAP), conditionsFromItem(ModItems.FLY_AGARIC_CAP))
-                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                        .offerTo(exporter);
-
-                /* Lion's Mane Spore Print */
-                createShaped(RecipeCategory.MISC, ModItems.LIONS_MANE_SPORE_PRINT)
-                        .pattern("   ")
-                        .pattern(" L ")
-                        .pattern(" P ")
-                        .input('L', ModItems.LIONS_MANE_SPORE_PRINT)
-                        .input('P', Items.PAPER)
-                        .criterion(hasItem(ModItems.LIONS_MANE), conditionsFromItem(ModItems.LIONS_MANE))
-                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                        .offerTo(exporter);
-
-                /* Oyster Mushroom Spore Print */
-                createShaped(RecipeCategory.MISC, ModItems.OYSTER_MUSHROOM_SPORE_PRINT)
-                        .pattern("   ")
-                        .pattern(" O ")
-                        .pattern(" P ")
-                        .input('O', ModItems.OYSTER_MUSHROOM)
-                        .input('P', Items.PAPER)
-                        .criterion(hasItem(ModItems.OYSTER_MUSHROOM), conditionsFromItem(ModItems.OYSTER_MUSHROOM))
-                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                        .offerTo(exporter);
-
-                /* Oyster Mushroom Spore Print */
-                createShaped(RecipeCategory.MISC, ModItems.PORCINI_SPORE_PRINT)
-                        .pattern("   ")
-                        .pattern(" O ")
-                        .pattern(" P ")
-                        .input('O', ModItems.PORCINI)
-                        .input('P', Items.PAPER)
-                        .criterion(hasItem(ModItems.PORCINI), conditionsFromItem(ModItems.PORCINI))
-                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                        .offerTo(exporter);
-
-                /* Reishi Spore Print */
-                createShaped(RecipeCategory.MISC, ModItems.REISHI_SPORE_PRINT)
-                        .pattern("   ")
-                        .pattern(" R ")
-                        .pattern(" P ")
-                        .input('R', ModItems.REISHI)
-                        .input('P', Items.PAPER)
-                        .criterion(hasItem(ModItems.REISHI), conditionsFromItem(ModItems.REISHI))
-                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                        .offerTo(exporter);
+                /* Honey Mushroom spore print and liquid culture */
+                createSporePrintAndLiquidCultureRecipes(ModItems.HONEY_MUSHROOM, ModItems.HONEY_MUSHROOM_SPORE_PRINT, ModItems.HONEY_MUSHROOM_LIQUID_CULTURE);
+                /* Lion's Mane spore print and liquid culture */
+                createSporePrintAndLiquidCultureRecipes(ModItems.LIONS_MANE, ModItems.LIONS_MANE_SPORE_PRINT, ModItems.LIONS_MANE_LIQUID_CULTURE);
+                /* Oyster Mushroom spore print and liquid culture */
+                createSporePrintAndLiquidCultureRecipes(ModItems.OYSTER_MUSHROOM, ModItems.OYSTER_MUSHROOM_SPORE_PRINT, ModItems.OYSTER_MUSHROOM_LIQUID_CULTURE);
+                /* Reishi spore print and liquid culture */
+                createSporePrintAndLiquidCultureRecipes(ModItems.REISHI, ModItems.REISHI_SPORE_PRINT, ModItems.REISHI_LIQUID_CULTURE);
 
                 /* MISC RECIPES */
 
@@ -145,6 +91,32 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.WIND_CHARGE), conditionsFromItem(Items.WIND_CHARGE))
                         .offerTo(exporter);
 
+            }
+
+
+            private void createSporePrintAndLiquidCultureRecipes(Item mushroomItem, Item sporePrintItem, Item liquidCultureItem) {
+                createShaped(RecipeCategory.MISC, sporePrintItem)
+                        .pattern("   ")
+                        .pattern(" M ")
+                        .pattern(" P ")
+                        .input('M', mushroomItem)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(mushroomItem), conditionsFromItem(mushroomItem))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, liquidCultureItem)
+                        .pattern("GSG")
+                        .pattern("GWG")
+                        .pattern(" I ")
+                        .input('G', Blocks.GLASS)
+                        .input('S', sporePrintItem)
+                        .input('W', ModItems.STERILIZED_WATER_BOTTLE)
+                        .input('I', Items.IRON_INGOT)
+                        .criterion(hasItem(Blocks.GLASS), conditionsFromItem(Blocks.GLASS))
+                        .criterion(hasItem(sporePrintItem), conditionsFromItem(sporePrintItem))
+                        .criterion(hasItem(ModItems.STERILIZED_WATER_BOTTLE), conditionsFromItem(ModItems.STERILIZED_WATER_BOTTLE))
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .offerTo(exporter);
             }
         };
     }

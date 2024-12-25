@@ -1,7 +1,14 @@
 {
-  "block.minecology.dehydrator": "Dehydrator",
+  "item.minecology.dehydrator": "Dehydrator",
+  "item.minecology.grow_bag": "Grow Bag",
+  "item.minecology.grain_grow_bag": "Grain Grow Bag",
+  "item.minecology.wood_chips_grow_bag": "Wood Chips Grow Bag",
+  "item.minecology.pressure_cooker": "Pressure Cooker",
   "item.minecology.chanterelle_block": "Chanterelle Block",
+  "item.minecology.chicken_of_the_woods_block": "Chicken of the Woods Block",
+  "item.minecology.destroying_angel_block": "Destroying Angel Block",
   "item.minecology.fly_agaric_block": "Fly Agaric Block",
+  "item.minecology.honey_mushroom_block": "Honey Mushroom Block",
   "item.minecology.lions_mane_block": "Lion's Mane Block",
   "item.minecology.morel_block": "Morel Block",
   "item.minecology.oyster_mushroom_block": "Oyster Mushroom Block",
@@ -10,10 +17,12 @@
 
   "item.minecology.crown_of_the_mushroom_forest": "Crown of the Mushroom Forest",
 
-  "item.minecology.chanterelle_spore_print": "Chanterelle Spore Print",
   "item.minecology.chanterelle": "Chanterelle",
 
-  "item.minecology.fly_agaric_spore_print": "Fly Agaric Spore Print",
+  "item.minecology.chicken_of_the_woods": "Chicken of the Woods",
+
+  "item.minecology.destroying_angel": "Destroying Angel",
+
   "item.minecology.fly_agaric": "Fly Agaric",
   "item.minecology.fly_agaric_cap": "Fly Agaric Cap",
   "item.minecology.dehydrated_fly_agaric_cap": "Dehydrated Fly Agaric Cap",
@@ -21,23 +30,32 @@
   "item.minecraft.splash_potion.effect.amanita_extract": "Topical Amanita Extract",
   "item.minecraft.lingering_potion.effect.amanita_extract": "Lingering Amanita Extract",
 
+  "item.minecology.honey_mushroom_spore_print": "Honey Mushroom Spore Print",
+  "item.minecology.honey_mushroom_liquid_culture": "Honey Mushroom Liquid Culture",
+  "item.minecology.honey_mushroom": "Honey Mushroom",
+
   "item.minecology.lions_mane_spore_print": "Lion's Mane Spore Print",
+  "item.minecology.lions_mane_liquid_culture": "Lion's Mane Liquid Culture",
   "item.minecology.lions_mane": "Lion's Mane",
   "item.minecology.cooked_lions_mane": "Cooked Lion's Mane",
   "item.minecology.morel": "Morel",
 
   "item.minecology.oyster_mushroom_spore_print": "Oyster Mushroom Spore Print",
+  "item.minecology.oyster_mushroom_liquid_culture": "Oyster Mushroom Liquid Culture",
   "item.minecology.oyster_mushroom": "Oyster Mushroom",
   "item.minecology.cooked_oyster_mushroom":"Cooked Oyster Mushroom",
   "item.minecology.cream_of_oyster_mushroom_soup": "Cream of Oyster Mushroom Soup",
 
   "item.minecology.porcini": "Porcini",
-  "item.minecology.porcini_spore_print": "Porcini Spore Print",
 
   "item.minecology.reishi_spore_print": "Reishi Spore Print",
+  "item.minecology.reishi_liquid_culture": "Reishi Liquid Culture",
   "item.minecology.reishi": "Reishi",
 
-  "item.minecology.dehydrator": "Dehydrator",
+  "item.minecology.grain": "Grain",
+  "item.minecology.sterilized_grain": "Sterilized Grain",
+  "item.minecology.wood_chips": "Wood Chips",
+  "item.minecology.sterilized_wood_chips": "Sterilized Wood Chips",
 
   "itemgroup.minecology.minecology_items": "Minecology",
 
@@ -45,7 +63,14 @@
   "effect.minecology.berserker": "Berserker",
   "effect.minecology.cognition": "Cognition",
 
+  "tooltip.minecology.chanterelle.tooltip": "§7§oCantharellus sp.",
+  "tooltip.minecology.chicken_of_the_woods.tooltip": "§7§oLaetiporus sulphureus",
+  "tooltip.minecology.destroying_angel.tooltip": "§7§oAmanita virosa",
   "tooltip.minecology.fly_agaric.tooltip": "§7§oAmanita muscaria",
+  "tooltip.minecology.honey_mushroom.tooltip": "§7§oArmillaria mellea",
   "tooltip.minecology.lions_mane.tooltip": "§7§oHericium erinaceus",
-  "tooltip.minecology.oyster_mushroom.tooltip": "§7§oPleurotus ostreatus"
+  "tooltip.minecology.morel.tooltip": "§7§oMorella sp.",
+  "tooltip.minecology.oyster_mushroom.tooltip": "§7§oPleurotus sp.",
+  "tooltip.minecology.porcini.tooltip": "§7§oBoletus edulis",
+  "tooltip.minecology.reishi.tooltip": "§7§oGanoderma lingzhi"
 }

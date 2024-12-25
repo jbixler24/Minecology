@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:glass",
+    "I": "minecraft:iron_ingot",
+    "S": "minecology:oyster_mushroom_spore_print",
+    "W": "minecology:sterilized_water_bottle"
+  },
+  "pattern": [
+    "GSG",
+    "GWG",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:oyster_mushroom_liquid_culture"
+  }
+}

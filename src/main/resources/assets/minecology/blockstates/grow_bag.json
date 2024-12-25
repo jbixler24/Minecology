@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "age=0,inoculated=false,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=1,inoculated=false,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=2,inoculated=false,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=3,inoculated=false,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=4,inoculated=false,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=0,inoculated=true,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=1,inoculated=true,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=2,inoculated=true,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=3,inoculated=true,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    },
+    "age=4,inoculated=true,substrate=straw,mushroom_type=none": {
+      "model": "minecology:block/grow_bag_straw_empty"
+    }
+  }
+}

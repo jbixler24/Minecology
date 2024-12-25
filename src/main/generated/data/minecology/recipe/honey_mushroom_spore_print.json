@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": "minecology:honey_mushroom",
+    "P": "minecraft:paper"
+  },
+  "pattern": [
+    "   ",
+    " M ",
+    " P "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:honey_mushroom_spore_print"
+  }
+}

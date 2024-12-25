@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
 
-public class OysterMushroomSporePrintItem extends Item {
+public class OysterMushroomSporePrintItem extends SporePrintItem {
     public OysterMushroomSporePrintItem(Settings settings) {
         super(settings);
     }

@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
 
-public class ReishiSporePrintItem extends Item {
+public class ReishiSporePrintItem extends SporePrintItem {
     public ReishiSporePrintItem(Settings settings) {
         super(settings);
     }

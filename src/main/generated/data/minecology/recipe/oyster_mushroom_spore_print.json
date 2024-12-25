@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "O": "minecology:oyster_mushroom",
+    "M": "minecology:oyster_mushroom",
     "P": "minecraft:paper"
   },
   "pattern": [
     "   ",
-    " O ",
+    " M ",
     " P "
   ],
   "result": {

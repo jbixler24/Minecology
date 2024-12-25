@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_honey_mushroom": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecology:honey_mushroom"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_paper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:paper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecology:honey_mushroom_spore_print"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_honey_mushroom",
+      "has_paper"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecology:honey_mushroom_spore_print"
+    ]
+  }
+}

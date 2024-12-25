@@ -2,12 +2,16 @@ package net.jbixler.block;
 
 import com.mojang.serialization.MapCodec;
 import net.jbixler.item.ModItems;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
@@ -30,7 +34,7 @@ public class MushroomBlock extends HorizontalFacingBlock {
     public static final int MAX_DROPS = 1;
 
     public MushroomBlock(Settings settings) {
-        super(settings);
+        super(settings.breakInstantly().sounds(BlockSoundGroup.NETHER_WART));
         this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(AGE, 0));
     }
 
