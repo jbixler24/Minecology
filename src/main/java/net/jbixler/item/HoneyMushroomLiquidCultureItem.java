@@ -1,9 +1,9 @@
 package net.jbixler.item;
 
-import net.minecraft.item.Item;
+import net.jbixler.block.enums.MushroomType;
 
-public class HoneyMushroomLiquidCultureItem extends Item {
+public class HoneyMushroomLiquidCultureItem extends LiquidCultureItem {
     public HoneyMushroomLiquidCultureItem(Settings settings) {
-        super(settings);
+        super(settings, MushroomType.HONEY_MUSHROOM);
     }
 }

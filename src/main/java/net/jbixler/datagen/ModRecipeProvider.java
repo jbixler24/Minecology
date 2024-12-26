@@ -10,8 +10,14 @@ import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.item.SwordItem;
+import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagEntry;
+import net.minecraft.registry.tag.TagKey;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -69,6 +75,41 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 /* Reishi spore print and liquid culture */
                 createSporePrintAndLiquidCultureRecipes(ModItems.REISHI, ModItems.REISHI_SPORE_PRINT, ModItems.REISHI_LIQUID_CULTURE);
 
+                /* Grain */
+                createShaped(RecipeCategory.MISC, ModItems.GRAIN, 4)
+                        .pattern("WW")
+                        .pattern("WW")
+                        .input('W', Items.WHEAT)
+                        .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                        .offerTo(exporter);
+
+                /* Wood Chips */
+                createShaped(RecipeCategory.MISC, ModItems.WOOD_CHIPS, 4)
+                        .pattern("LL")
+                        .pattern("LL")
+                        .input('L', ItemTags.LOGS)
+                        .offerTo(exporter);
+
+                /* Grain Grow Bag */
+                createShaped(RecipeCategory.MISC, ModBlocks.GRAIN_GROW_BAG_BLOCK)
+                        .pattern("WWW")
+                        .pattern("WGW")
+                        .pattern("WWW")
+                        .input('W', Items.WHITE_WOOL)
+                        .input('G', ModItems.STERILIZED_GRAIN)
+                        .criterion(hasItem(ModItems.GRAIN), conditionsFromItem(ModItems.GRAIN))
+                        .offerTo(exporter);
+
+                /* Wood Chips Grow Bag */
+                createShaped(RecipeCategory.MISC, ModBlocks.WOOD_CHIPS_GROW_BAG_BLOCK)
+                        .pattern("WWW")
+                        .pattern("WGW")
+                        .pattern("WWW")
+                        .input('W', Items.WHITE_WOOL)
+                        .input('G', ModItems.STERILIZED_WOOD_CHIPS)
+                        .criterion(hasItem(ModItems.WOOD_CHIPS), conditionsFromItem(ModItems.WOOD_CHIPS))
+                        .offerTo(exporter);
+
                 /* MISC RECIPES */
 
                 /* Fly Agaric Cap */
@@ -90,9 +131,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.IRON_BLOCK), conditionsFromItem(Items.IRON_BLOCK))
                         .criterion(hasItem(Items.WIND_CHARGE), conditionsFromItem(Items.WIND_CHARGE))
                         .offerTo(exporter);
-
             }
-
 
             private void createSporePrintAndLiquidCultureRecipes(Item mushroomItem, Item sporePrintItem, Item liquidCultureItem) {
                 createShaped(RecipeCategory.MISC, sporePrintItem)

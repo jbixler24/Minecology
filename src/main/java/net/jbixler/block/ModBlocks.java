@@ -30,7 +30,6 @@ public class ModBlocks {
 
     /* Other blocks */
     public static final Block DEHYDRATOR_BLOCK = registerBlock("dehydrator", AbstractBlock.Settings.create().requiresTool().strength(3.5F), DehydratorBlock.class, new Item.Settings());
-    public static final Block GROW_BAG_BLOCK = registerBlock("grow_bag", AbstractBlock.Settings.create().strength(0.8F), GrowBagBlock.class, new Item.Settings());
     public static final Block GRAIN_GROW_BAG_BLOCK = registerBlock("grain_grow_bag", AbstractBlock.Settings.create().strength(0.8F), GrainGrowBagBlock.class, new Item.Settings());
     public static final Block WOOD_CHIPS_GROW_BAG_BLOCK = registerBlock("wood_chips_grow_bag", AbstractBlock.Settings.create().strength(0.8F), WoodChipsGrowBagBlock.class, new Item.Settings());
     public static final Block PRESSURE_COOKER_BLOCK = registerBlock("pressure_cooker", AbstractBlock.Settings.create().requiresTool().strength(3.5F), PressureCookerBlock.class, new Item.Settings());
@@ -67,7 +66,6 @@ public class ModBlocks {
     public static List<Block> getBlocks() {
         List<Block> allBlocks = new ArrayList<>(getMushroomBlocks());
         allBlocks.add(DEHYDRATOR_BLOCK);
-        allBlocks.add(GROW_BAG_BLOCK);
         allBlocks.add(GRAIN_GROW_BAG_BLOCK);
         allBlocks.add(WOOD_CHIPS_GROW_BAG_BLOCK);
         allBlocks.add(PRESSURE_COOKER_BLOCK);

@@ -68,8 +68,9 @@ public class MushroomBlock extends HorizontalFacingBlock {
     /** Breaks mushroom block when hit by a projectile **/
     @Override
     protected void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        world.setBlockState(hit.getBlockPos(), Blocks.AIR.getDefaultState());
+        onBreak(world, hit.getBlockPos(), world.getBlockState(hit.getBlockPos()), (PlayerEntity) projectile.getOwner());
     }
+
 
     @Override
     protected MapCodec<? extends HorizontalFacingBlock> getCodec() {

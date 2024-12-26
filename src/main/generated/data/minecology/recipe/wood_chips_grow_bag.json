@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecology:sterilized_wood_chips",
+    "W": "minecraft:white_wool"
+  },
+  "pattern": [
+    "WWW",
+    "WGW",
+    "WWW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecology:wood_chips_grow_bag"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "minecology:block/wood_chips_grow_bag_4"
+  }
+}

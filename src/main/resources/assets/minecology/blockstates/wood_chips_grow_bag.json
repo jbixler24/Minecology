@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "age=0,inoculated=false,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=1,inoculated=false,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=2,inoculated=false,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=3,inoculated=false,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=4,inoculated=false,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=0,inoculated=true,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=1,inoculated=true,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=2,inoculated=true,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=3,inoculated=true,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=4,inoculated=true,mushroom_type=none": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=0,inoculated=false,mushroom_type=honey_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=1,inoculated=false,mushroom_type=honey_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_1"
+    },
+    "age=2,inoculated=false,mushroom_type=honey_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_2"
+    },
+    "age=3,inoculated=false,mushroom_type=honey_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_3"
+    },
+    "age=4,inoculated=false,mushroom_type=honey_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_4"
+    },
+    "age=0,inoculated=false,mushroom_type=lions_mane": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=1,inoculated=false,mushroom_type=lions_mane": {
+      "model": "minecology:block/wood_chips_grow_bag_1"
+    },
+    "age=2,inoculated=false,mushroom_type=lions_mane": {
+      "model": "minecology:block/wood_chips_grow_bag_2"
+    },
+    "age=3,inoculated=false,mushroom_type=lions_mane": {
+      "model": "minecology:block/wood_chips_grow_bag_3"
+    },
+    "age=4,inoculated=false,mushroom_type=lions_mane": {
+      "model": "minecology:block/wood_chips_grow_bag_4"
+    },
+    "age=0,inoculated=false,mushroom_type=oyster_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=1,inoculated=false,mushroom_type=oyster_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_1"
+    },
+    "age=2,inoculated=false,mushroom_type=oyster_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_2"
+    },
+    "age=3,inoculated=false,mushroom_type=oyster_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_3"
+    },
+    "age=4,inoculated=false,mushroom_type=oyster_mushroom": {
+      "model": "minecology:block/wood_chips_grow_bag_4"
+    },
+    "age=0,inoculated=false,mushroom_type=reishi": {
+      "model": "minecology:block/wood_chips_grow_bag"
+    },
+    "age=1,inoculated=false,mushroom_type=reishi": {
+      "model": "minecology:block/wood_chips_grow_bag_1"
+    },
+    "age=2,inoculated=false,mushroom_type=reishi": {
+      "model": "minecology:block/wood_chips_grow_bag_2"
+    },
+    "age=3,inoculated=false,mushroom_type=reishi": {
+      "model": "minecology:block/wood_chips_grow_bag_3"
+    },
+    "age=4,inoculated=false,mushroom_type=reishi": {
+      "model": "minecology:block/wood_chips_grow_bag_4"
+    }
+  }
+}

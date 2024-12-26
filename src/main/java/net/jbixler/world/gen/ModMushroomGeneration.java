@@ -82,7 +82,7 @@ public class ModMushroomGeneration {
 
         /* Oyster Mushroom birch biome modification */
         BiomeModifications.addFeature(
-            BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.FOREST, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
+            BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
             GenerationStep.Feature.VEGETAL_DECORATION,
             ModPlacedFeatures.OYSTER_MUSHROOM_BIRCH_PLACED_KEY);
 

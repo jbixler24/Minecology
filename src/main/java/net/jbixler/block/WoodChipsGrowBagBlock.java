@@ -1,9 +1,7 @@
 package net.jbixler.block;
 
-import net.minecraft.block.Block;
-
-public class WoodChipsGrowBagBlock extends Block {
+public class WoodChipsGrowBagBlock extends GrowBagBlock {
     public WoodChipsGrowBagBlock(Settings settings) {
-        super(settings);
+        super(settings, 0.05f, 0.05f);
     }
 }

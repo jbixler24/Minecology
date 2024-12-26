@@ -33,8 +33,8 @@ public class Minecology implements ModInitializer {
 
 		ModEffects.registerEffects();
 		ModArmorMaterials.registerMaterials();
-		ModItems.registerItems();
 		ModBlocks.registerBlocks();
+		ModItems.registerItems();
 		ModBlockEntityTypes.registerBlockEntityTypes();
 		ModItemGroups.registerItemGroups();
 		ModPotions.registerPotions();

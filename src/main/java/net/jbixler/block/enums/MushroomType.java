@@ -1,6 +1,7 @@
 package net.jbixler.block.enums;
 
 import net.jbixler.block.ModBlocks;
+import net.jbixler.block.MushroomBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.StringIdentifiable;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public enum MushroomType implements StringIdentifiable {
 
-    NONE("none", Blocks.AIR, List.of()),
+    NONE("none", ModBlocks.HONEY_MUSHROOM_BLOCK, List.of()),
     CHANTERELLE("chanterelle", ModBlocks.CHANTERELLE_BLOCK, List.of()),
     CHICKEN_OF_THE_WOODS("chicken_of_the_woods", ModBlocks.CHICKEN_OF_THE_WOODS_BLOCK, List.of()),
     DESTROYING_ANGEL("destroying_angel", ModBlocks.DESTROYING_ANGEL_BLOCK, List.of()),
@@ -22,18 +23,18 @@ public enum MushroomType implements StringIdentifiable {
     REISHI("reishi", ModBlocks.REISHI_BLOCK, List.of());
 
     private final String name;
-    private final Block mushroomBlock;
+    private final MushroomBlock mushroomBlock;
 
     MushroomType(String name, Block mushroomBlock, List<Substrate> validSubstrates) {
         this.name = name;
-        this.mushroomBlock = mushroomBlock;
+        this.mushroomBlock = (MushroomBlock) mushroomBlock;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Block getMushroomBlock() {
+    public MushroomBlock getMushroomBlock() {
         return this.mushroomBlock;
     }
 
