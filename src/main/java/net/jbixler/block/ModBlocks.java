@@ -26,7 +26,7 @@ public class ModBlocks {
     public static final Block MOREL_BLOCK = registerBlock("morel_block", AbstractBlock.Settings.create(), MorelBlock.class, new Item.Settings());
     public static final Block OYSTER_MUSHROOM_BLOCK = registerBlock("oyster_mushroom_block", AbstractBlock.Settings.create(), OysterMushroomBlock.class, new Item.Settings());
     public static final Block PORCINI_BLOCK = registerBlock("porcini_block", AbstractBlock.Settings.create(), PorciniBlock.class, new Item.Settings());
-    public static final Block REISHI_BLOCK = registerBlock("reishi_block", AbstractBlock.Settings.create(), ReishiMushroomBlock.class, new Item.Settings());
+    public static final Block REISHI_BLOCK = registerBlock("reishi_block", AbstractBlock.Settings.create(), ReishiBlock.class, new Item.Settings());
 
     /* Other blocks */
     public static final Block DEHYDRATOR_BLOCK = registerBlock("dehydrator", AbstractBlock.Settings.create().requiresTool().strength(3.5F), DehydratorBlock.class, new Item.Settings());

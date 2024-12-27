@@ -21,41 +21,11 @@ import net.minecraft.world.event.GameEvent;
 import java.util.List;
 
 public class FlyAgaricBlock extends MushroomBlock {
-    public static final float WILD_GROWTH_PROBABILITY = 0.1f;
-    public static final int MAX_AGE = 2;
-    public static final List<Block> PLACEABLE_BLOCKS = List.of(Blocks.GRASS_BLOCK, Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT);
 
+    public static List<Block> PLACEABLE_BLOCKS = List.of(Blocks.GRASS_BLOCK, Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT);
 
     public FlyAgaricBlock(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return PLACEABLE_BLOCKS.contains(world.getBlockState(pos.down()).getBlock());
-    }
-
-    @Override
-    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (world.random.nextFloat() > WILD_GROWTH_PROBABILITY) {
-            int i = state.get(AGE);
-            if (i < MAX_AGE) {
-                world.setBlockState(pos, state.with(AGE, i + 1), 2);
-            }
-        }
-    }
-
-    @Override
-    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        this.spawnBreakParticles(world, player, pos, state);
-        int itemCount = state.get(AGE) == MAX_AGE ? 1 : 0;
-        if (itemCount > 0) {
-            ItemEntity itemEntity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.FLY_AGARIC, itemCount));
-            world.spawnEntity(itemEntity);
-        }
-
-        world.emitGameEvent(GameEvent.BLOCK_DESTROY, pos, GameEvent.Emitter.of(player, state));
-        return state;
+        super(settings, 1, 1, 0.1f, PLACEABLE_BLOCKS, ModItems.FLY_AGARIC);
     }
 
     @Override
@@ -63,7 +33,4 @@ public class FlyAgaricBlock extends MushroomBlock {
         return VoxelShapes.cuboid(0.25f, 0.0f, 0.25f, 0.75f, 0.3f, 0.75f);
     }
 
-    public static List<Block> getPlaceableBlocks() {
-        return PLACEABLE_BLOCKS;
-    }
 }

@@ -2,11 +2,13 @@ package net.jbixler.block;
 
 import net.jbixler.item.ModItems;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -16,12 +18,17 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class LionsManeBlock extends MushroomBlock {
+public class ReishiBlock extends MushroomBlock {
+    public static final IntProperty AGE = Properties.AGE_2;
+    public static final int MAX_AGE = 2;
+    public static final int MIN_DROPS = 1;
+    public static final int MAX_DROPS = 1;
+    public static final float WILD_GROWTH_PROBABILITY = 0.01f;
+    public static final List<Block> PLACEABLE_BLOCKS = List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG);
 
-    public LionsManeBlock(Settings settings) {
-        super(settings, 1, 1, 0.05f, List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG, Blocks.BIRCH_LOG), ModItems.LIONS_MANE);
+    public ReishiBlock(Settings settings) {
+        super(settings, 1, 1, 0.01f, List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG), ModItems.REISHI);
     }
-
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {

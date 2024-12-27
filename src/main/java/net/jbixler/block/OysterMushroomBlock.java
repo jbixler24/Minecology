@@ -5,46 +5,23 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class OysterMushroomBlock extends MushroomBlock {
     public static final IntProperty AGE = Properties.AGE_2;
-    public static final int MAX_AGE = 2;
-    public static final int MIN_DROPS = 1;
-    public static final int MAX_DROPS = 3;
-    public static final float WILD_GROWTH_PROBABILITY = 0.05f;
-    public static final List<Block> PLACEABLE_BLOCKS = List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG, Blocks.BIRCH_LOG);
-
     public OysterMushroomBlock(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        List<BlockPos> adjacentBlocks = List.of(pos.up(), pos.north(), pos.east(), pos.west(), pos.south());
-        for (BlockPos blockPos : adjacentBlocks) {
-            if (PLACEABLE_BLOCKS.contains(world.getBlockState(blockPos).getBlock())) {
-                return true;
-            }
-        }
-        return false;
+        super(settings, 1, 3, 0.05f, List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG, Blocks.BIRCH_LOG), ModItems.OYSTER_MUSHROOM);
     }
 
     @Override
@@ -55,38 +32,15 @@ public class OysterMushroomBlock extends MushroomBlock {
         Block eastBlock = world.getBlockState(pos.east()).getBlock();
         Block westBlock = world.getBlockState(pos.west()).getBlock();
 
-        if (PLACEABLE_BLOCKS.contains(northBlock)) {
+        if (this.placeableBlocks.contains(northBlock)) {
             newDirection = Direction.SOUTH;
-        } else if (PLACEABLE_BLOCKS.contains(eastBlock)) {
+        } else if (this.placeableBlocks.contains(eastBlock)) {
             newDirection = Direction.WEST;
-        } else if (PLACEABLE_BLOCKS.contains(westBlock)) {
+        } else if (this.placeableBlocks.contains(westBlock)) {
             newDirection = Direction.EAST;
         }
 
         world.setBlockState(pos, state.with(FACING, newDirection));
-    }
-
-    @Override
-    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (world.random.nextFloat() > WILD_GROWTH_PROBABILITY) {
-            int i = state.get(AGE);
-            if (i < MAX_AGE) {
-                world.setBlockState(pos, state.with(AGE, i + 1), 2);
-            }
-        }
-    }
-
-    @Override
-    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        this.spawnBreakParticles(world, player, pos, state);
-        int itemCount = state.get(AGE) == MAX_AGE ? world.random.nextBetween(MIN_DROPS, MAX_DROPS) : 0;
-        if (itemCount > 0) {
-            ItemEntity itemEntity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.OYSTER_MUSHROOM, itemCount));
-            world.spawnEntity(itemEntity);
-        }
-
-        world.emitGameEvent(GameEvent.BLOCK_DESTROY, pos, GameEvent.Emitter.of(player, state));
-        return state;
     }
 
     @Override

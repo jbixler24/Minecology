@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "minecology:block/fly_agaric_block_2",
-		"particle": "minecology:item/fly_agaric"
+		"particle": "minecology:block/fly_agaric_block_2"
 	},
 	"elements": [
 		{

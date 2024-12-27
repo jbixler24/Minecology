@@ -1,0 +1,36 @@
+{
+  "parent": "minecology:block/lions_mane_block_2",
+  "textures": {
+    "layer0": "minecology:block/lions_mane_block_2"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [-180, 0, -180],
+      "translation": [-0.5, -2.5, -4],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [-180, 0, -180],
+      "translation": [0.75, -2.5, -4],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "firstperson_righthand": {
+      "translation": [2.25, 0, 1.75]
+    },
+    "firstperson_lefthand": {
+      "translation": [2.25, 0, 1.75]
+    },
+    "gui": {
+      "rotation": [45, 29, 0],
+      "translation": [4, -3.75, 0]
+    },
+    "head": {
+      "rotation": [-180, 0, -180],
+      "translation": [0, 0, -6.5]
+    },
+    "fixed": {
+      "rotation": [-180, 0, -180],
+      "translation": [-1.25, -0.75, -7]
+    }
+  }
+}

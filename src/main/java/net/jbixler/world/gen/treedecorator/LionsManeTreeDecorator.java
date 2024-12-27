@@ -65,6 +65,6 @@ public class LionsManeTreeDecorator extends TreeDecorator {
     private void replaceAir(TreeDecorator.Generator generator, BlockPos pos, Direction direction) {
         Minecology.debug(String.format("Trying to generate lion's mane at %d, %d, %d", pos.getX(), pos.getY(), pos.getZ()));
         generator.replace(pos, ModBlocks.LIONS_MANE_BLOCK.getDefaultState().with(LionsManeBlock.AGE,
-                generator.getRandom().nextInt(LionsManeBlock.MAX_AGE)).with(LionsManeBlock.FACING, direction));
+                generator.getRandom().nextInt(2)).with(LionsManeBlock.FACING, direction));
     }
 }

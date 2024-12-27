@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.jbixler.Minecology;
 import net.jbixler.block.ModBlocks;
-import net.jbixler.block.ReishiMushroomBlock;
+import net.jbixler.block.ReishiBlock;
 import net.jbixler.util.WorldGenUtil;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -58,7 +58,7 @@ public class ReishiTreeDecorator extends TreeDecorator {
      */
     private void replaceAir(TreeDecorator.Generator generator, BlockPos pos, Direction direction) {
         Minecology.debug(String.format("Trying to generate reishi mushroom at %d, %d, %d", pos.getX(), pos.getY(), pos.getZ()));
-        generator.replace(pos, ModBlocks.REISHI_BLOCK.getDefaultState().with(ReishiMushroomBlock.AGE,
-                generator.getRandom().nextInt(ReishiMushroomBlock.MAX_AGE)).with(ReishiMushroomBlock.FACING, direction));
+        generator.replace(pos, ModBlocks.REISHI_BLOCK.getDefaultState().with(ReishiBlock.AGE,
+                generator.getRandom().nextInt(ReishiBlock.MAX_AGE)).with(ReishiBlock.FACING, direction));
     }
 }

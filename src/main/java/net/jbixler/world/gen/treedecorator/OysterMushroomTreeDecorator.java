@@ -64,6 +64,6 @@ public class OysterMushroomTreeDecorator extends TreeDecorator {
     private void replaceAir(TreeDecorator.Generator generator, BlockPos pos, Direction direction) {
         Minecology.debug(String.format("Trying to generate oyster mushroom at %d, %d, %d", pos.getX(), pos.getY(), pos.getZ()));
         generator.replace(pos, ModBlocks.OYSTER_MUSHROOM_BLOCK.getDefaultState().with(OysterMushroomBlock.AGE,
-                generator.getRandom().nextInt(OysterMushroomBlock.MAX_AGE)).with(OysterMushroomBlock.FACING, direction));
+                generator.getRandom().nextInt(2)).with(OysterMushroomBlock.FACING, direction));
     }
 }
