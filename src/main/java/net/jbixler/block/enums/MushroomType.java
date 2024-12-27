@@ -23,18 +23,19 @@ public enum MushroomType implements StringIdentifiable {
     REISHI("reishi", ModBlocks.REISHI_BLOCK, List.of());
 
     private final String name;
-    private final MushroomBlock mushroomBlock;
+    private final Block mushroomBlock;
 
     MushroomType(String name, Block mushroomBlock, List<Substrate> validSubstrates) {
         this.name = name;
-        this.mushroomBlock = (MushroomBlock) mushroomBlock;
+        this.mushroomBlock = mushroomBlock;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MushroomBlock getMushroomBlock() {
+    public Block getMushroomBlock() {
+        System.out.println(this.mushroomBlock);
         return this.mushroomBlock;
     }
 

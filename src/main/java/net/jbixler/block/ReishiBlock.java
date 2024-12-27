@@ -21,10 +21,6 @@ import java.util.List;
 public class ReishiBlock extends MushroomBlock {
     public static final IntProperty AGE = Properties.AGE_2;
     public static final int MAX_AGE = 2;
-    public static final int MIN_DROPS = 1;
-    public static final int MAX_DROPS = 1;
-    public static final float WILD_GROWTH_PROBABILITY = 0.01f;
-    public static final List<Block> PLACEABLE_BLOCKS = List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG);
 
     public ReishiBlock(Settings settings) {
         super(settings, 1, 1, 0.01f, List.of(Blocks.OAK_LOG, Blocks.DARK_OAK_LOG), ModItems.REISHI);

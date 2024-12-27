@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.jbixler.block.MushroomBlock;
 import net.jbixler.potion.ModPotions;
 import net.jbixler.block.ModBlocks;
-import net.jbixler.block.entity.ModBlockEntityTypes;
 import net.jbixler.effects.ModEffects;
 import net.jbixler.item.ModArmorMaterials;
 import net.jbixler.item.ModItemGroups;
@@ -35,14 +34,15 @@ public class Minecology implements ModInitializer {
 		ModArmorMaterials.registerMaterials();
 		ModBlocks.registerBlocks();
 		ModItems.registerItems();
-		ModBlockEntityTypes.registerBlockEntityTypes();
 		ModItemGroups.registerItemGroups();
 		ModPotions.registerPotions();
 		ModTreeDecoratorTypes.registerTreeDecoratorTypes();
 
+//		ModBlockEntities.registerBlockEntities();
+
 		ModWorldGeneration.generateModWorldGen();
 
-		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> breakAdjacentMushroomBlocks(world, player, pos, state));
+		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> breakAdjacentMushroomBlocks(world, player, pos));
 
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.AWKWARD, ModItems.DEHYDRATED_FLY_AGARIC_CAP, ModPotions.AMANITA_EXTRACT);
@@ -54,9 +54,8 @@ public class Minecology implements ModInitializer {
 	 * @param world World
 	 * @param player Player breaking the block
 	 * @param pos BlockPos
-	 * @param state Connected block BlockState
 	 */
-	private void breakAdjacentMushroomBlocks(World world, PlayerEntity player, BlockPos pos, BlockState state) {
+	private void breakAdjacentMushroomBlocks(World world, PlayerEntity player, BlockPos pos) {
 		BlockState northBlockState = world.getBlockState(pos.north());
 		BlockState eastBlockState = world.getBlockState(pos.east());
 		BlockState southBlockState = world.getBlockState(pos.south());

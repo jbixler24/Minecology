@@ -4,6 +4,7 @@ import net.jbixler.block.enums.MushroomType;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -18,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 public class GrowBagBlock extends Block {
@@ -91,7 +93,24 @@ public class GrowBagBlock extends Block {
             } else if (pos.getZ() > side.getZ()) {
                 dir = Direction.WEST;
             }
-            world.setBlockState(side, state.get(MUSHROOM_TYPE).getMushroomBlock().getDefaultState().with(MushroomBlock.FACING, dir));
+            System.out.println(String.format("Trying to spawn %s block at %d, %d, %d", state.get(MUSHROOM_TYPE).getName(), side.getX(), side.getY(), side.getZ()));
+            world.setBlockState(side, getMushroomBlock(state.get(MUSHROOM_TYPE)).getDefaultState().with(MushroomBlock.FACING, dir));
         }
+    }
+
+    protected Block getMushroomBlock(MushroomType type) {
+        Map<MushroomType, Block> mushroomMap = Map.ofEntries(
+                Map.entry(MushroomType.CHANTERELLE, ModBlocks.CHANTERELLE_BLOCK),
+                Map.entry(MushroomType.CHICKEN_OF_THE_WOODS, ModBlocks.CHICKEN_OF_THE_WOODS_BLOCK),
+                Map.entry(MushroomType.DESTROYING_ANGEL, ModBlocks.DESTROYING_ANGEL_BLOCK),
+                Map.entry(MushroomType.FLY_AGARIC, ModBlocks.FLY_AGARIC_BLOCK),
+                Map.entry(MushroomType.HONEY_MUSHROOM, ModBlocks.HONEY_MUSHROOM_BLOCK),
+                Map.entry(MushroomType.LIONS_MANE, ModBlocks.LIONS_MANE_BLOCK),
+                Map.entry(MushroomType.MOREL, ModBlocks.MOREL_BLOCK),
+                Map.entry(MushroomType.OYSTER_MUSHROOM, ModBlocks.OYSTER_MUSHROOM_BLOCK),
+                Map.entry(MushroomType.PORCINI, ModBlocks.PORCINI_BLOCK),
+                Map.entry(MushroomType.REISHI, ModBlocks.REISHI_BLOCK)
+        );
+        return mushroomMap.get(type);
     }
 }
