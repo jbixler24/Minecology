@@ -3,8 +3,8 @@
   "config": {
     "decorators": [
       {
-        "type": "minecology:reishi_tree_decorator_type",
-        "logsRatio": 4,
+        "type": "minecology:chicken_of_the_woods_tree_decorator_type",
+        "logsRatio": 5,
         "probability": 1.0
       }
     ],

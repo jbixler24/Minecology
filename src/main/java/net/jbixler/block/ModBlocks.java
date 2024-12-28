@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ModBlocks {
 
-    /* Mushroom blocks */
+    /* Overworld mushroom blocks */
     public static final Block CHANTERELLE_BLOCK = registerBlock("chanterelle_block", AbstractBlock.Settings.create(), ChanterelleBlock.class, new Item.Settings());
     public static final Block CHICKEN_OF_THE_WOODS_BLOCK = registerBlock("chicken_of_the_woods_block", AbstractBlock.Settings.create(), ChickenOfTheWoodsBlock.class, new Item.Settings());
     public static final Block DESTROYING_ANGEL_BLOCK = registerBlock("destroying_angel_block", AbstractBlock.Settings.create(), DestroyingAngelBlock.class, new Item.Settings());
@@ -28,12 +28,25 @@ public class ModBlocks {
     public static final Block PORCINI_BLOCK = registerBlock("porcini_block", AbstractBlock.Settings.create(), PorciniBlock.class, new Item.Settings());
     public static final Block REISHI_BLOCK = registerBlock("reishi_block", AbstractBlock.Settings.create(), ReishiBlock.class, new Item.Settings());
 
-    /* Other blocks */
+    /* Cultivation system blocks */
     public static final Block DEHYDRATOR_BLOCK = registerBlock("dehydrator", AbstractBlock.Settings.create().requiresTool().strength(3.5F), DehydratorBlock.class, new Item.Settings());
     public static final Block GRAIN_GROW_BAG_BLOCK = registerBlock("grain_grow_bag", AbstractBlock.Settings.create().strength(0.8F), GrainGrowBagBlock.class, new Item.Settings());
     public static final Block WOOD_CHIPS_GROW_BAG_BLOCK = registerBlock("wood_chips_grow_bag", AbstractBlock.Settings.create().strength(0.8F), WoodChipsGrowBagBlock.class, new Item.Settings());
     public static final Block PRESSURE_COOKER_BLOCK = registerBlock("pressure_cooker", AbstractBlock.Settings.create().requiresTool().strength(3.5F), PressureCookerBlock.class, new Item.Settings());
 
+    /* Mushroom dimension blocks */
+    public static final Block SCLEROTIA_ORE_BLOCK = registerBlock("sclerotia_ore", AbstractBlock.Settings.create(), SclerotiaOreBlock.class, new Item.Settings());
+    public static final Block BLACK_TRUFFLE_BLOCK = registerBlock("black_truffle", AbstractBlock.Settings.create(), BlackTruffleBlock.class, new Item.Settings());
+    public static final Block BLACK_TRUFFLE_SKIN_BLOCK = registerBlock("black_truffle_skin", AbstractBlock.Settings.create(), BlackTruffleSkinBlock.class, new Item.Settings());
+
+    /** Registers a block
+     *
+     * @param name Name of block used in the Identifier
+     * @param blockSettings Settings for block
+     * @param blockClass Class of block
+     * @param itemSettings Settings for BlockItem
+     * @return
+     */
     public static Block registerBlock(String name, AbstractBlock.Settings blockSettings, Class<? extends Block> blockClass, Item.Settings itemSettings) {
         Identifier id = Identifier.of(Minecology.MOD_ID, name);
         RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, id);
@@ -50,6 +63,12 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, key, block);
     }
 
+    /** Registers a block item
+     *
+     * @param name Name of block used in the Identifier
+     * @param block Block
+     * @param settings BlockItem settings
+     */
      static void registerBlockItem(String name, Block block, Item.Settings settings) {
         Identifier id = Identifier.of(Minecology.MOD_ID, name);
         RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
@@ -58,20 +77,27 @@ public class ModBlocks {
         Registry.register(Registries.ITEM, key, item);
     }
 
+    /** Called in mod initialization to register all static instances of blocks **/
     public static void registerBlocks() {
         List<Block> allBlocks = getBlocks();
         Minecology.log(String.format("Registering %d blocks", allBlocks.size()));
     }
 
+    /** Returns all blocks custom to this mod **/
     public static List<Block> getBlocks() {
         List<Block> allBlocks = new ArrayList<>(getMushroomBlocks());
         allBlocks.add(DEHYDRATOR_BLOCK);
         allBlocks.add(GRAIN_GROW_BAG_BLOCK);
         allBlocks.add(WOOD_CHIPS_GROW_BAG_BLOCK);
         allBlocks.add(PRESSURE_COOKER_BLOCK);
+
+        allBlocks.add(SCLEROTIA_ORE_BLOCK);
+        allBlocks.add(BLACK_TRUFFLE_BLOCK);
+        allBlocks.add(BLACK_TRUFFLE_SKIN_BLOCK);
         return allBlocks;
     }
 
+    /** Returns all (overworld) mushroom blocks **/
     public static List<Block> getMushroomBlocks() {
         List<Block> mushroomBlocks = new ArrayList<>();
         mushroomBlocks.add(CHANTERELLE_BLOCK);

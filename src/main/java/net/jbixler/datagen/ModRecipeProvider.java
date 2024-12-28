@@ -84,10 +84,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter);
 
                 /* Wood Chips */
-                createShaped(RecipeCategory.MISC, ModItems.WOOD_CHIPS, 4)
-                        .pattern("LL")
-                        .pattern("LL")
+                createShaped(RecipeCategory.MISC, ModItems.WOOD_CHIPS, 9)
+                        .pattern("LLL")
+                        .pattern("LLL")
+                        .pattern("LLL")
                         .input('L', ItemTags.LOGS)
+                        .criterion("has_log", conditionsFromTag(ItemTags.LOGS))
                         .offerTo(exporter);
 
                 /* Grain Grow Bag */

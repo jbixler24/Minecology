@@ -4,6 +4,7 @@
     "decorators": [
       {
         "type": "minecology:lions_mane_tree_decorator_type",
+        "logsRatio": 4,
         "probability": 1.0
       }
     ],

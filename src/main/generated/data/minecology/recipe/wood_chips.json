@@ -5,11 +5,12 @@
     "L": "#minecraft:logs"
   },
   "pattern": [
-    "LL",
-    "LL"
+    "LLL",
+    "LLL",
+    "LLL"
   ],
   "result": {
-    "count": 4,
+    "count": 9,
     "id": "minecology:wood_chips"
   }
 }

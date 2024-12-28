@@ -23,7 +23,13 @@ public class ModPlacedFeatures {
 
 //    public static final RegistryKey<PlacedFeature> CHANTERELLE_PLACED_KEY = registerKey("chanterelle_placed");
 
+    public static final RegistryKey<PlacedFeature> CHICKEN_OF_THE_WOODS_OAK_PLACED_KEY = registerKey("chicken_of_the_woods_oak_placed");
+    public static final RegistryKey<PlacedFeature> CHICKEN_OF_THE_WOODS_FANCY_OAK_PLACED_KEY = registerKey("chicken_of_the_woods_fancy_oak_placed");
+    public static final RegistryKey<PlacedFeature> CHICKEN_OF_THE_WOODS_CHERRY_PLACED_KEY = registerKey("chicken_of_the_woods_cherry_placed");
+
     public static final RegistryKey<PlacedFeature> FLY_AGARIC_PLACED_KEY = registerKey("fly_agaric_placed");
+
+    public static final RegistryKey<PlacedFeature> HONEY_MUSHROOM_OAK_PLACED_KEY = registerKey("honey_mushroom_oak_placed");
 
     public static final RegistryKey<PlacedFeature> LIONS_MANE_OAK_PLACED_KEY = registerKey("lions_mane_oak_placed");
     public static final RegistryKey<PlacedFeature> LIONS_MANE_FANCY_OAK_PLACED_KEY = registerKey("lions_mane_fancy_oak_placed");
@@ -45,7 +51,9 @@ public class ModPlacedFeatures {
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 //        registerChanterellePF(context, configuredFeatures);
+        registerChickenOfTheWoodsPF(context, configuredFeatures);
         registerFlyAgaricPF(context, configuredFeatures);
+//        registerHoneyMushroomPF(context, configuredFeatures);
         registerLionsManePF(context, configuredFeatures);
 //        registerMorelPF(context, configuredFeatures);
         registerOysterMushroomPF(context, configuredFeatures);
@@ -57,65 +65,127 @@ public class ModPlacedFeatures {
     /** Registers Chanterelle placed features
      *
      * @param context Registerable context
+     * @param configuredFeatures RegistryLookup of all registered configured features
      */
     public static void registerChanterellePF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
 
     }
 
+    /** Registers Chicken of the Woods placed features
+     *
+     * @param context Registerable context
+     * @param configuredFeatures RegistryLookup of all registered configured features
+     */
+    public static void registerChickenOfTheWoodsPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
+        int defaultChance = 128;
+
+        /* Chicken of the Woods oak tree placed feature */
+        register(context, CHICKEN_OF_THE_WOODS_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
+                        ModConfiguredFeatures.CHICKEN_OF_THE_WOODS_OAK_DECORATOR_KEY),
+                RarityFilterPlacementModifier.of(defaultChance),
+                PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                BiomePlacementModifier.of()
+        );
+
+        /* Chicken of the Woods fancy oak tree placed feature */
+        register(context, CHICKEN_OF_THE_WOODS_FANCY_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
+                        ModConfiguredFeatures.CHICKEN_OF_THE_WOODS_FANCY_OAK_DECORATOR_KEY),
+                RarityFilterPlacementModifier.of(defaultChance * 2),
+                PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                BiomePlacementModifier.of()
+        );
+
+        /* Chicken of the Woods fancy oak tree placed feature */
+        register(context, CHICKEN_OF_THE_WOODS_CHERRY_PLACED_KEY, configuredFeatures.getOrThrow(
+                        ModConfiguredFeatures.CHICKEN_OF_THE_WOODS_CHERRY_DECORATOR_KEY),
+                RarityFilterPlacementModifier.of(defaultChance),
+                PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                BiomePlacementModifier.of()
+        );
+    }
+
     /** Registers Fly Agaric placed features
      *
      * @param context Registerable context
+     * @param configuredFeatures RegistryLookup of all registered configured features
      */
     public static void registerFlyAgaricPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
+        int defaultChance = 64;
+
         /* Fly Agaric patch placed feature */
         register(context, FLY_AGARIC_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.FLY_AGARIC_PATCH_KEY),
-                        RarityFilterPlacementModifier.of(32),
+                        RarityFilterPlacementModifier.of(defaultChance),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-                        BiomePlacementModifier.of());
+                        BiomePlacementModifier.of()
+        );
+    }
+
+    /** Registers Honey Mushroom placed features
+     *
+     * @param context Registerable context
+     * @param configuredFeatures RegistryLookup of all registered configured features
+     */
+    public static void registerHoneyMushroomPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
+        int defaultChance = 32;
+
+        /* Honey Mushroom oak tree placed feature */
+        register(context, HONEY_MUSHROOM_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
+                        ModConfiguredFeatures.HONEY_MUSHROOM_OAK_DECORATOR_KEY),
+                        RarityFilterPlacementModifier.of(defaultChance),
+                        PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()
+        );
     }
 
     /** Registers Lion's Mane placed features
      *
      * @param context Registerable context
+     * @param configuredFeatures RegistryLookup of all registered configured features
      */
     public static void registerLionsManePF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
         int defaultChance = 64;
 
-        /* Lion's mane regular oak tree placed feature */
+        /* Lion's Mane oak tree placed feature */
         register(context, LIONS_MANE_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_OAK_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance),
                         PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
-                        BiomePlacementModifier.of());
+                        BiomePlacementModifier.of()
+        );
 
-        /* Lion's mane fancy oak tree placed feature */
+        /* Lion's Mane fancy oak tree placed feature */
         register(context, LIONS_MANE_FANCY_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_FANCY_OAK_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance * 2),
                         PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
-                        BiomePlacementModifier.of());
+                        BiomePlacementModifier.of()
+        );
 
-        /* Lion's mane large oak tree placed feature */
+        /* Lion's Mane large oak tree placed feature */
         register(context, LIONS_MANE_BIRCH_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_BIRCH_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance),
                         PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
-                        BiomePlacementModifier.of());
+                        BiomePlacementModifier.of()
+        );
 
-        /* Lion's mane super birch tree placed feature */
+        /* Lion's Mane super birch tree placed feature */
         register(context, LIONS_MANE_SUPER_BIRCH_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.LIONS_MANE_SUPER_BIRCH_DECORATOR_TREE),
                     RarityFilterPlacementModifier.of(defaultChance),
                     PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP,
-                    BiomePlacementModifier.of());
+                    BiomePlacementModifier.of()
+        );
     }
 
     // TODO: implement
+
     /** Registers Morel placed features
      *
      * @param context Registerable context
+     * @param configuredFeatures RegistryLookup of all registered configured features
      */
     public static void registerMorelPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
 
@@ -128,7 +198,7 @@ public class ModPlacedFeatures {
     public static void registerOysterMushroomPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
         int defaultChance = 64;
 
-        /* Oyster Mushroom regular oak tree placed feature */
+        /* Oyster Mushroom oak tree placed feature */
         register(context, OYSTER_MUSHROOM_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.OYSTER_MUSHROOM_OAK_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance),
@@ -174,7 +244,7 @@ public class ModPlacedFeatures {
     public static void registerReishiPF(Registerable<PlacedFeature> context, RegistryEntryLookup<ConfiguredFeature<?, ?>> configuredFeatures) {
         int defaultChance = 128;
 
-        /* Reishi regular oak tree placed feature */
+        /* Reishi oak tree placed feature */
         register(context, REISHI_OAK_PLACED_KEY, configuredFeatures.getOrThrow(
                         ModConfiguredFeatures.REISHI_OAK_DECORATOR_KEY),
                         RarityFilterPlacementModifier.of(defaultChance),

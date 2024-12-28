@@ -15,6 +15,10 @@
   "item.minecology.porcini_block": "Porcini Block",
   "item.minecology.reishi_block": "Reishi Block",
 
+  "item.minecology.sclerotium_ore": "Sclerotia Ore",
+  "item.minecology.black_truffle_block": "Black Truffle",
+  "item.minecology.black_truffle_skin": "Black Truffle Skin",
+
   "item.minecology.crown_of_the_mushroom_forest": "Crown of the Mushroom Forest",
 
   "item.minecology.chanterelle": "Chanterelle",
@@ -58,6 +62,7 @@
   "item.minecology.wood_chips": "Wood Chips",
   "item.minecology.sterilized_wood_chips": "Sterilized Wood Chips",
   "item.minecology.sterilized_water_bottle": "Sterilized Water Bottle",
+  "item.minecology.sclerotium": "Sclerotium",
 
   "itemgroup.minecology.minecology_items": "Minecology",
 

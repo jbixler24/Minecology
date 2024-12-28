@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ModItems {
 
-    /* Mushroom items */
+    /* Overworld mushroom items */
     public static final Item CHANTERELLE = registerItem("chanterelle", new Item.Settings().food(ModFoodComponents.RAW_MUSHROOM, ModFoodComponents.RAW_MUSHROOM_EFFECT), ChanterelleItem.class);
 
     public static final Item DESTROYING_ANGEL_SPORE_PRINT = registerItem("destroying_angel_spore_print", new Item.Settings(), DestroyingAngelItem.class);
@@ -58,6 +58,9 @@ public class ModItems {
     public static final Item WOOD_CHIPS = registerItem("wood_chips", new Item.Settings(), WoodChipsItem.class);
     public static final Item STERILIZED_WOOD_CHIPS = registerItem("sterilized_wood_chips", new Item.Settings(), SterilizedWoodChipsItem.class);
     public static final Item STERILIZED_WATER_BOTTLE = registerItem("sterilized_water_bottle", new Item.Settings(), SterilizedWaterBottleItem.class);
+
+    /* Mushroom dimension items */
+    public static final Item SCLEROTIUM = registerItem("sclerotium", new Item.Settings(), SclerotiumItem.class);
 
     /** Registers a single item
      * @param name Name of item to be registered
@@ -134,6 +137,8 @@ public class ModItems {
         allItems.add(WOOD_CHIPS);
         allItems.add(STERILIZED_WOOD_CHIPS);
         allItems.add(STERILIZED_WATER_BOTTLE);
+
+        allItems.add(SCLEROTIUM);
 
         return allItems;
     }

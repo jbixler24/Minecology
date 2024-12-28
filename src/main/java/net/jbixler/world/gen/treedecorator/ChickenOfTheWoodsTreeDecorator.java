@@ -6,21 +6,22 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.jbixler.block.ModBlocks;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
-public class ReishiTreeDecorator extends ShelfMushroomTreeDecorator {
+public class ChickenOfTheWoodsTreeDecorator extends ShelfMushroomTreeDecorator {
 
-    public static final MapCodec<ReishiTreeDecorator> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
+    public static final MapCodec<ChickenOfTheWoodsTreeDecorator> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
         return instance.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((decorator) -> {
             return decorator.probability;
         }), Codec.intRange(0, 10).fieldOf("logsRatio").forGetter((decorator) -> {
             return decorator.logsRatio;
-        })).apply(instance, ReishiTreeDecorator::new);
+        })).apply(instance, ChickenOfTheWoodsTreeDecorator::new);
     });
 
-    public ReishiTreeDecorator(float probability, int logsRatio) {
-        super(probability, logsRatio, ModBlocks.REISHI_BLOCK);
+    public ChickenOfTheWoodsTreeDecorator(float probability, int logsRatio) {
+        super(probability, logsRatio, ModBlocks.CHICKEN_OF_THE_WOODS_BLOCK);
     }
+
     @Override
     protected TreeDecoratorType<?> getType() {
-        return ModTreeDecoratorTypes.REISHI_TREE_DECORATOR_TYPE;
+        return ModTreeDecoratorTypes.CHICKEN_OF_THE_WOODS_TREE_DECORATOR_TYPE;
     }
 }

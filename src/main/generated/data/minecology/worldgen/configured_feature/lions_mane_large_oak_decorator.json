@@ -3,7 +3,8 @@
   "config": {
     "decorators": [
       {
-        "type": "minecology:oyster_mushroom_tree_decorator_type",
+        "type": "minecology:lions_mane_tree_decorator_type",
+        "logsRatio": 4,
         "probability": 1.0
       }
     ],

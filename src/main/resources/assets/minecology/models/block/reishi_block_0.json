@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "block/reishi_block_0",
-		"particle": "block/reishi_block_0"
+		"0": "minecology:block/reishi_block_0",
+		"particle": "minecology:block/reishi_block_0"
 	},
 	"elements": [
 		{
