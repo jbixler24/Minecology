@@ -69,7 +69,7 @@ public class ModConfiguredFeatures {
 //        registerChanterelleCF(context);
         registerChickenOfTheWoodsCF(context);
         registerFlyAgaricCF(context);
-//        registerHoneyMushroomCF(context);
+        registerHoneyMushroomCF(context);
         registerLionsManeCF(context);
 //        registerMorelCF(context);
         registerOysterMushroomCF(context);
@@ -148,7 +148,7 @@ public class ModConfiguredFeatures {
                         BlockStateProvider.of(Blocks.OAK_LEAVES.getDefaultState()),
                         new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                         new TwoLayersFeatureSize(1, 0, 1))
-                        .decorators(ImmutableList.of(new HoneyMushroomTreeDecorator(1.0f, 4))).build())
+                        .decorators(ImmutableList.of(new HoneyMushroomTreeDecorator(1.0f))).build())
         );
     }
 

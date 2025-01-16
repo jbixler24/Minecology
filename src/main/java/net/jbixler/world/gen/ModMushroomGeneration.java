@@ -19,12 +19,12 @@ public class ModMushroomGeneration {
     public static final List<RegistryKey<Biome>> CHERRY_BIOME_KEYS = List.of(BiomeKeys.PLAINS, BiomeKeys.OCEAN, BiomeKeys.CHERRY_GROVE);
     public static final List<RegistryKey<Biome>> DARK_OAK_BIOME_KEYS = List.of(BiomeKeys.PLAINS, BiomeKeys.OCEAN, BiomeKeys.DARK_FOREST);
 
-
     /** Generates all mushroom biome modifications **/
     public static void generateMushrooms() {
 //        generateChanterelle();
         generateChickenOfTheWoods();
         generateFlyAgaric();
+        generateHoneyMushroom();
         generateLionsMane();
 //        generateMorel();
         generateOysterMushroom();
@@ -66,6 +66,16 @@ public class ModMushroomGeneration {
                 BiomeSelectors.includeByKey(BiomeKeys.TAIGA, BiomeKeys.SNOWY_TAIGA, BiomeKeys.OLD_GROWTH_PINE_TAIGA, BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA),
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 ModPlacedFeatures.FLY_AGARIC_PLACED_KEY);
+    }
+
+    /** Generates Honey Mushroom biome modifications **/
+    public static void generateHoneyMushroom() {
+        /* Honey Mushroom oak biome modification */
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(OAK_BIOME_KEYS),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                ModPlacedFeatures.HONEY_MUSHROOM_OAK_PLACED_KEY
+        );
     }
 
     /** Generates Lion's Mane biome modifications **/

@@ -62,6 +62,9 @@ public class ModItems {
     /* Mushroom dimension items */
     public static final Item SCLEROTIUM = registerItem("sclerotium", new Item.Settings(), SclerotiumItem.class);
 
+    /* Other items */
+    public static final Item ACTIVATED_CHARCOAL = registerItem("activated_charcoal", new Item.Settings().food(ModFoodComponents.ACTIVATED_CHARCOAL, ModFoodComponents.))
+
     /** Registers a single item
      * @param name Name of item to be registered
      * @param settings Settings of item to be registered

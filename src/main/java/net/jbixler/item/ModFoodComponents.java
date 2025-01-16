@@ -11,6 +11,10 @@ import net.minecraft.registry.Registries;
 
 public class ModFoodComponents {
 
+    /* FoodComponents */
+
+    public static final FoodComponent ACTIVATED_CHARCOAL = new FoodComponent.Builder().nutrition(2).saturationModifier(0.25f).build();
+
     public static final FoodComponent RAW_MUSHROOM = new FoodComponent.Builder().nutrition(3).saturationModifier(0.1f).build();
 
     public static final FoodComponent FLY_AGARIC_CAP = new FoodComponent.Builder().alwaysEdible().nutrition(2).saturationModifier(0.1f).build();
@@ -19,6 +23,12 @@ public class ModFoodComponents {
     public static final FoodComponent COOKED_LIONS_MANE = new FoodComponent.Builder().nutrition(8).saturationModifier(0.4f).build();
     public static final FoodComponent COOKED_OYSTER_MUSHROOM = new FoodComponent.Builder().nutrition(6).saturationModifier(0.4f).build();
     public static final FoodComponent CREAM_OF_OYSTER_MUSHROOM_SOUP = new FoodComponent.Builder().nutrition(12).saturationModifier(0.5f).build();
+
+    /* ConsumableComponents */
+
+    public static final ConsumableComponent ACTIVATED_CHARCOAL_EFFECT = ConsumableComponents.food()
+            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(ModEffects.)))
+            .build();
 
     public static final ConsumableComponent RAW_MUSHROOM_EFFECT = ConsumableComponents.food()
             .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0, false, false)))

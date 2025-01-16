@@ -14,6 +14,7 @@ import java.util.List;
 
 public class ModPotions {
     public static final RegistryEntry<Potion> AMANITA_EXTRACT = registerPotion("amanita_extract", new Potion("amanita_extract", new StatusEffectInstance(Registries.STATUS_EFFECT.getEntry(ModEffects.BERSERKER), 1200, 0)));
+    public static final RegistryEntry<Potion> AMATOXIN_POISON = registerPotion("amatoxin_poison", new Potion("amatoxin_poison", new StatusEffectInstance(Registries.STATUS_EFFECT.getEntry(ModEffects.AMATOXIN_POISONING), 60, 0)));
 
     /** Registers a potion
      * @param name Namespace of the potion to register
@@ -33,6 +34,7 @@ public class ModPotions {
     public static List getPotions() {
         List<RegistryEntry<Potion>> allPotions = new ArrayList<>();
         allPotions.add(AMANITA_EXTRACT);
+        allPotions.add(AMATOXIN_POISON);
         return allPotions;
     }
 }

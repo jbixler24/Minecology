@@ -53,7 +53,7 @@ public class ModPlacedFeatures {
 //        registerChanterellePF(context, configuredFeatures);
         registerChickenOfTheWoodsPF(context, configuredFeatures);
         registerFlyAgaricPF(context, configuredFeatures);
-//        registerHoneyMushroomPF(context, configuredFeatures);
+        registerHoneyMushroomPF(context, configuredFeatures);
         registerLionsManePF(context, configuredFeatures);
 //        registerMorelPF(context, configuredFeatures);
         registerOysterMushroomPF(context, configuredFeatures);
